@@ -22,17 +22,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Welc0me t0 base">
-<meta property="og:type" content="website">
+  <meta name="description" content="main代码概述 这段代码似乎与在多线程环境中处理传入的 TCP 连接有关。让我们逐步分析代码： 初始化  声明变量以保存各种数据结构，如套接字、线程和通道。 使用 core::fmt::Arguments 对象 (v10) 格式化字符串。 创建 std::net::tcp::TcpListener 对象 (listener) 以侦听特定端口上的传入连接。  主循环  代码进入一个循环，该循环迭代">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Xloudmax">
-<meta property="og:url" content="http://example.com/archives/2024/index.html">
+<meta property="og:url" content="http://example.com/2024/03/12/httpproxy/index.html">
 <meta property="og:site_name" content="Xloudmax">
-<meta property="og:description" content="Welc0me t0 base">
+<meta property="og:description" content="main代码概述 这段代码似乎与在多线程环境中处理传入的 TCP 连接有关。让我们逐步分析代码： 初始化  声明变量以保存各种数据结构，如套接字、线程和通道。 使用 core::fmt::Arguments 对象 (v10) 格式化字符串。 创建 std::net::tcp::TcpListener 对象 (listener) 以侦听特定端口上的传入连接。  主循环  代码进入一个循环，该循环迭代">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-12T11:46:52.191Z">
+<meta property="article:modified_time" content="2024-03-09T05:28:55.288Z">
 <meta property="article:author" content="Xloudmax">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/archives/2024/">
+<link rel="canonical" href="http://example.com/2024/03/12/httpproxy/">
 
 
 <script id="page-configurations">
@@ -40,12 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | Xloudmax</title>
+  <title> | Xloudmax</title>
   
 
 
@@ -173,234 +175,140 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 11 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/12/httpproxy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Xloudmax">
+      <meta itemprop="description" content="Welc0me t0 base">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xloudmax">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-12 19:46:52" itemprop="dateCreated datePublished" datetime="2024-03-12T19:46:52+08:00">2024-03-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-03-09 13:28:55" itemprop="dateModified" datetime="2024-03-09T13:28:55+08:00">2024-03-09</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2024</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-03-12T19:47:23+08:00"
-              content="2024-03-12">
-          03-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/03/12/post/" itemprop="url">
-            <span itemprop="name">post</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-03-12T19:46:52+08:00"
-              content="2024-03-12">
-          03-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/03/12/rou%201/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-03-12T19:46:52+08:00"
-              content="2024-03-12">
-          03-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/03/12/hcc/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-03-12T19:46:52+08:00"
-              content="2024-03-12">
-          03-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/03/12/httpproxy/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-03-12T19:46:52+08:00"
-              content="2024-03-12">
-          03-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/03/12/11/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-03-12T19:46:52+08:00"
-              content="2024-03-12">
-          03-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/03/12/2/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-03-12T19:46:52+08:00"
-              content="2024-03-12">
-          03-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/03/12/w/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-03-12T19:46:52+08:00"
-              content="2024-03-12">
-          03-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/03/12/rou/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-03-12T19:42:00+08:00"
-              content="2024-03-12">
-          03-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/03/12/hscctf%20reverse%20roulette/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-03-12T19:37:07+08:00"
-              content="2024-03-12">
-          03-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/03/12/1/" itemprop="url">
-            <span itemprop="name">1</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <p><strong>main代码概述</strong></p>
+<p>这段代码似乎与在多线程环境中处理传入的 TCP 连接有关。让我们逐步分析代码：</p>
+<p><strong>初始化</strong></p>
+<ol>
+<li>声明变量以保存各种数据结构，如套接字、线程和通道。</li>
+<li>使用 <code>core::fmt::Arguments</code> 对象 (<code>v10</code>) 格式化字符串。</li>
+<li>创建 <code>std::net::tcp::TcpListener</code> 对象 (<code>listener</code>) 以侦听特定端口上的传入连接。</li>
+</ol>
+<p><strong>主循环</strong></p>
+<ol>
+<li>代码进入一个循环，该循环迭代直到没有更多连接可接受。</li>
+<li>在循环内，代码使用 <code>std::net::tcp::Incoming::next</code> 接受新连接。</li>
+<li>如果没有更多连接可接受，则循环中断。</li>
+<li>创建新的 <code>core::result::Result</code> 对象 (<code>v20</code>) 来存储接受连接的结果。</li>
+<li>准备一个名为 <code>http_proxy::main::_closure_env_0</code> 的自定义结构（可能包含与连接相关的数据）（<code>joba</code>）。</li>
+<li>使用线程池 (<code>v14</code>) 在单独的线程中执行函数 (<code>threadpool::ThreadPool::execute</code>)。此函数可能处理已接受连接的处理。</li>
+<li>在线程生成后，代码清理与接收客户端消息相关的资源 (<code>recv_chan</code>)。</li>
+</ol>
+<p><strong>线程函数（未显示）</strong></p>
+<ol>
+<li>线程函数（未在提供的代码中显示）可能使用提供的通道 (<code>recv_chan</code>) 从客户端检索消息。</li>
+<li>它可能会处理接收到的消息并向客户端发送回执。</li>
+</ol>
+<p><strong>清理</strong></p>
+<ol>
+<li>循环退出后，使用 <code>core::ptr::drop_in_place</code> 清理各种对象，例如线程池、通道和侦听器套接字。</li>
+</ol>
+<p><strong>总体而言，此代码片段似乎是一个工作函数，它侦听传入的 TCP 连接、生成线程来处理每个连接并在处理完所有连接后清理资源。</strong></p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Xloudmax
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2024/03/12/httpproxy/" title="">http://example.com/2024/03/12/httpproxy/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/03/12/11/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/03/12/hcc/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2024/page/2/">2</a><a class="extend next" rel="next" href="/archives/2024/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  
+  
 
 
 

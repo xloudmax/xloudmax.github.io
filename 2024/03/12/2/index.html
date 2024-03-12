@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="该函数看起来像是某种验证程序的入口点。它检查用户输入的字符串是否满足特定格式并通过加密算法进行验证。下面是代码的详细解释： 变量声明:  check_enc_last：字符数组，大小为 9，可能用于存储用于比较的加密值。 check_index：无符号 8 位整数数组，大小为 4，用途不明。 check_enc：无符号 8 位整数数组，大小为 4，可能用于存储用于比较的加密值。 flagLong：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xloudmax">
+<meta property="og:url" content="http://example.com/2024/03/12/2/index.html">
+<meta property="og:site_name" content="Xloudmax">
+<meta property="og:description" content="该函数看起来像是某种验证程序的入口点。它检查用户输入的字符串是否满足特定格式并通过加密算法进行验证。下面是代码的详细解释： 变量声明:  check_enc_last：字符数组，大小为 9，可能用于存储用于比较的加密值。 check_index：无符号 8 位整数数组，大小为 4，用途不明。 check_enc：无符号 8 位整数数组，大小为 4，可能用于存储用于比较的加密值。 flagLong：">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-12T11:46:52.181Z">
+<meta property="article:modified_time" content="2024-03-08T15:08:11.721Z">
+<meta property="article:author" content="Xloudmax">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2024/03/12/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | Xloudmax</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Xloudmax</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/12/2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Xloudmax">
+      <meta itemprop="description" content="Welc0me t0 base">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xloudmax">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-12 19:46:52" itemprop="dateCreated datePublished" datetime="2024-03-12T19:46:52+08:00">2024-03-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-03-08 23:08:11" itemprop="dateModified" datetime="2024-03-08T23:08:11+08:00">2024-03-08</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>该函数看起来像是某种验证程序的入口点。它检查用户输入的字符串是否满足特定格式并通过加密算法进行验证。下面是代码的详细解释：</p>
+<p><strong>变量声明:</strong></p>
+<ul>
+<li><code>check_enc_last</code>：字符数组，大小为 9，可能用于存储用于比较的加密值。</li>
+<li><code>check_index</code>：无符号 8 位整数数组，大小为 4，用途不明。</li>
+<li><code>check_enc</code>：无符号 8 位整数数组，大小为 4，可能用于存储用于比较的加密值。</li>
+<li><code>flagLong</code>：无符号 32 位整数数组，大小为 2，可能用于存储从用户输入提取的较长标志值。</li>
+<li><code>vv</code>：无符号 8 位整数数组，大小为 5，用于存储用户输入字符串的前 4 个字节。</li>
+<li><code>flag</code>：字符数组，大小为 33，用于存储用户输入的标志。</li>
+<li><code>k</code>：无符号 32 位整数数组，大小为 4，用途不明 (可能与加密算法相关)。</li>
+<li><code>v</code>：无符号 32 位整数数组，大小为 2，用途不明。</li>
+<li><code>t</code>：无符号 8 位整数，用于临时存储值。</li>
+<li><code>enc_hex</code>：无符号 32 位整数，用于存储转换后的加密值。</li>
+<li><code>v2</code>：无符号 8 位整数指针，指向从用户输入提取的标志值的某个部分。</li>
+<li><code>v1</code>：无符号 8 位整数指针，指向从用户输入提取的标志值的某个部分。</li>
+<li><code>tokstr</code>：字符指针，指向用户输入分割后的某个部分。</li>
+<li><code>mallocSize</code>：整型变量，用于存储分配内存的大小。</li>
+<li><code>flagLen</code>：整型变量，用于存储用户输入的标志长度。</li>
+<li><code>i</code>：无符号 8 位整数循环变量。</li>
+<li><code>success</code>：布尔值，指示验证是否成功。</li>
+</ul>
+<p><strong>代码流程:</strong></p>
+<ol>
+<li><p><strong>初始化:</strong></p>
+<ul>
+<li>调用 <code>_main</code> 函数 (可能是程序的实际入口点)。</li>
+<li>初始化部分变量。</li>
+<li>提示用户输入标志并使用 <code>getStr</code> 函数读取输入，存储在 <code>flag</code> 数组中。</li>
+<li>将 <code>flag</code> 数组的前 4 个字节复制到 <code>vv</code> 数组中。</li>
+</ul>
+</li>
+<li><p><strong>格式检查:</strong></p>
+<ul>
+<li>检查 <code>flag[4]</code> 的值是否为 123。</li>
+<li>检查 <code>flagLen - 1</code> 处的值是否为 125。</li>
+<li>比较字符串 <code>flag</code> 前 4 个字节 (<code>vv</code>) 是否等于 “flag”。如果不相等，则提示 “header error!” 并返回失败。</li>
+</ul>
+</li>
+<li><p><strong>提取标志值:</strong></p>
+<ul>
+<li>如果格式检查通过，计算需要分配的内存大小 (<code>mallocSize</code>)。</li>
+<li>分配内存空间并用 <code>memset</code> 函数将其初始化为零。</li>
+<li>将 <code>flag</code> 数组的第 5 个字节到倒数第二个字节复制到分配的内存 (<code>tokstr</code>) 中。</li>
+<li>使用 <code>strtok</code> 函数将 <code>tokstr</code> 按照分隔符 “-“ 进行分割，并分别把分割后的部分赋值给指针 <code>v1</code> 和 <code>v2</code>。</li>
+</ul>
+</li>
+<li><p><strong>加密和验证:</strong></p>
+<ul>
+<li>将 <code>v1</code> 和 <code>v2</code> 指针指向的字符串转换为无符号 32 位整数，分别存储在 <code>flagLong[0]</code> 和 <code>flagLong[1]</code> 中。</li>
+<li>调用 <code>encrypt</code> 函数，可能使用密钥 <code>k</code> 对 <code>flagLong</code> 数组中的值进行加密。</li>
+<li>设置 <code>check_index</code> 和 <code>check_enc</code> 数组的值 (用途不明)。</li>
+<li>循环遍历 <code>check_index</code> 数组，依次提取 <code>flagLong[0]</code> 中的每个字节并与 <code>check_enc</code> 数组对应位置的值进行比较。如果不相等，则将 <code>success</code> 标志设置为 <code>false</code>。</li>
+<li>将 “3c471c36” 字符串反转并转换为无符号 32 位整数，存储在 <code>enc_hex</code> 中。</li>
+<li>比较 <code>enc_hex</code> 和 <code>flagLong[1]</code> 的值，如果不相等，则将 <code>success</code> 标志设置为 <code>false</code>。</li>
+</ul>
+</li>
+<li><p><strong>输出结果:</strong></p>
+<ul>
+<li>根据 <code>success</code> 标志的值，输出 “You Win!” 或 “You Lost!” 信息。</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><h2 id="函数-reverse-的解释（C-C-）"><a href="#函数-reverse-的解释（C-C-）" class="headerlink" title="函数 reverse 的解释（C&#x2F;C++）"></a>函数 reverse 的解释（C&#x2F;C++）</h2></li>
+</ul>
+<p>该函数的功能是原地反转一个字符串中的指定子串。下面是代码的详细解释：</p>
+<p><strong>参数:</strong></p>
+<ul>
+<li><code>s</code>: 指向字符串首字符的字符指针。</li>
+<li><code>start</code>: 整型变量，指定要反转的子串的起始索引 (包含在内)。</li>
+<li><code>end</code>: 整型变量，指定要反转的子串的结束索引 (不包含在内)。</li>
+</ul>
+<p><strong>代码流程:</strong></p>
+<ol>
+<li><p><strong>循环条件:</strong></p>
+<ul>
+<li>使用 <code>while</code> 循环，只要 <code>end</code> 的值大于 <code>start</code> 就继续循环。</li>
+</ul>
+</li>
+<li><p><strong>交换字符:</strong></p>
+<ul>
+<li>首先将字符数组 <code>s</code> 的 <code>start</code> 索引处的字符保存到临时变量 <code>t</code> 中。</li>
+<li>然后将字符数组 <code>s</code> 的 <code>end</code> 索引处的字符赋值给 <code>start</code> 索引处的字符。</li>
+<li>最后将临时变量 <code>t</code> 中的值赋值给 <code>end</code> 索引处的字符，完成一次字符的交换。</li>
+</ul>
+</li>
+<li><p><strong>更新索引:</strong></p>
+<ul>
+<li>将 <code>start</code> 索引加 1，指向下一个需要交换的字符。</li>
+<li>将 <code>end</code> 索引减 1，指向下一个需要交换的字符。</li>
+</ul>
+</li>
+<li><p><strong>循环:</strong></p>
+<ul>
+<li>由于 <code>start</code> 和 <code>end</code> 索引在每次循环中都分别加 1 和减 1，因此会逐渐向中间靠近，直到 <code>end</code> 小于或等于 <code>start</code> 为止。循环结束后，子串中的字符就完成了反转。</li>
+</ul>
+</li>
+</ol>
+<p>#encrypt<br><strong>参数:</strong></p>
+<ul>
+<li><code>v</code>: 指向包含两个 32 位无符号整数的数组的指针。这可能代表需要加密的数据。</li>
+<li><code>k</code>: 指向包含四个 32 位无符号整数的数组的指针。这可能代表加密密钥。</li>
+</ul>
+<p><strong>变量声明:</strong></p>
+<ul>
+<li><code>i</code>: 用于循环的无符号 32 位整数变量。</li>
+<li><code>sum</code>: 用于存储中间计算结果的 32 位无符号整数变量。</li>
+<li><code>v0</code>: 用于临时存储数据 <code>v[0]</code> 的 32 位无符号整数变量。</li>
+<li><code>v1</code>: 用于临时存储数据 <code>v[1]</code> 的 32 位无符号整数变量。</li>
+</ul>
+<p><strong>代码流程:</strong></p>
+<ol>
+<li><p><strong>初始化:</strong></p>
+<ul>
+<li>将 <code>v[0]</code> 的值赋给 <code>v0</code> 变量。</li>
+<li>将 <code>v[1]</code> 的值赋给 <code>v1</code> 变量。</li>
+<li>将 <code>sum</code> 初始化为 0。</li>
+</ul>
+</li>
+<li><p><strong>循环加密:</strong></p>
+<ul>
+<li>使用 <code>for</code> 循环进行 32 轮 (0 到 0x1F) 的迭代。<ul>
+<li>在每轮迭代中：<ul>
+<li>将 <code>sum</code> 减去一个常数 <code>1640531527</code> (该常数的作用在破解密码学算法中可能很重要，但在此不做深入分析)。</li>
+<li>对 <code>v0</code> 进行更新计算，表达式包含以下部分：<ul>
+<li><code>v1 + sum</code>: 将 <code>v1</code> 和 <code>sum</code> 进行位运算 (可能为加法或异或)。</li>
+<li><code>*k + 16 * v1</code>: 将密钥数组 <code>k</code> 的第一个元素和 <code>v1</code> 左移 4 位的结果进行位运算 (可能为加法或异或)。</li>
+<li><code>(v1 &gt;&gt; 5) + k[1]</code>: 将 <code>v1</code> 右移 5 位的结果和密钥数组 <code>k</code> 的第二个元素进行位运算 (可能为加法或异或)。</li>
+</ul>
+</li>
+<li>对 <code>v1</code> 进行类似于 <code>v0</code> 的更新计算，只是使用的密钥元素不同 (<code>k[2]</code> 和 <code>k[3]</code>)。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>写回结果:</strong></p>
+<ul>
+<li>将计算后的 <code>v0</code> 值写回 <code>v[0]</code> 中。</li>
+<li>将计算后的 <code>v1</code> 值写回 <code>v[1]</code> 中。</li>
+</ul>
+</li>
+</ol>
+<p><strong>总体而言，</strong> 该函数使用了 <strong>费斯TEL (Feistel) 网络结构</strong> 的基本原理进行加密操作。它将数据块分割成两个半块，然后经过多次迭代的加密变换，最后将加密后的结果写回原数据块。由于使用了密钥 <code>k</code>，使得解密过程需要知道正确的密钥才能还原原始数据。</p>
+<h2 id="函数-decrypt-的解释（C-C-）"><a href="#函数-decrypt-的解释（C-C-）" class="headerlink" title="函数 decrypt 的解释（C&#x2F;C++）"></a>函数 decrypt 的解释（C&#x2F;C++）</h2><p>该函数是之前解释的 <code>encrypt</code> 函数的 <strong>解密函数</strong>。它使用相同的基本结构，但运算方向相反，从而实现将加密后的数据解密回原始数据。下面是代码的详细解释：</p>
+<p><strong>参数:</strong></p>
+<ul>
+<li><code>v</code>: 指向包含两个 32 位无符号整数的数组的指针。这可能代表需要解密的数据 (之前被 <code>encrypt</code> 函数加密过)。</li>
+<li><code>k</code>: 指向包含四个 32 位无符号整数的数组的指针。这应该和 <code>encrypt</code> 函数使用的密钥相同。</li>
+</ul>
+<p><strong>变量声明:</strong></p>
+<ul>
+<li><code>i</code>: 用于循环的无符号 32 位整数变量。</li>
+<li><code>sum</code>: 用于存储中间计算结果的 32 位无符号整数变量。</li>
+<li><code>v0</code>: 用于临时存储数据 <code>v[0]</code> 的 32 位无符号整数变量。</li>
+<li><code>v1</code>: 用于临时存储数据 <code>v[1]</code> 的 32 位无符号整数变量。</li>
+</ul>
+<p><strong>代码流程:</strong></p>
+<ol>
+<li><p><strong>初始化:</strong></p>
+<ul>
+<li>将 <code>v[0]</code> 的值赋给 <code>v0</code> 变量。</li>
+<li>将 <code>v[1]</code> 的值赋给 <code>v1</code> 变量。</li>
+<li>将 <code>sum</code> 初始化为一个和 <code>encrypt</code> 函数中不同的常数 <code>-957401312</code> (这确保了解密过程需要正确的密钥)。</li>
+</ul>
+</li>
+<li><p><strong>循环解密:</strong></p>
+<ul>
+<li>使用 <code>for</code> 循环进行 32 轮 (0 到 0x1F) 的迭代。<ul>
+<li>在每轮迭代中：<ul>
+<li>将 <code>sum</code> 加上一个常数 <code>1640531527</code> (和 <code>encrypt</code> 函数相反)。</li>
+<li>对 <code>v1</code> 进行更新计算，表达式与 <code>encrypt</code> 函数类似，但运算方向相反：<ul>
+<li>将 <code>v0 + sum</code>、<code>k[2] + 16 * v0</code> 和 <code>(v0 &gt;&gt; 5) + k[3]</code> 进行位运算 (可能为加法或异或)。</li>
+</ul>
+</li>
+<li>对 <code>v0</code> 进行类似于 <code>v1</code> 的更新计算，只是使用的密钥元素顺序不同 (<code>*k</code> 和 <code>k[1]</code>)，运算方向也相反。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>写回结果:</strong></p>
+<ul>
+<li>将计算后的 <code>v0</code> 值写回 <code>v[0]</code> 中。</li>
+<li>将计算后的 <code>v1</code> 值写回 <code>v[1]</code> 中。</li>
+</ul>
+</li>
+</ol>
+<p><strong>总体而言，</strong> 该函数利用了 <strong>费斯TEL (Feistel) 网络</strong> 可逆的特性，通过将加密过程的运算方向反转来实现解密。只有使用正确的密钥 <code>k</code>，才能将加密后的数据还原成原始数据。</p>
+<p><strong>需要注意的是，</strong> 和 <code>encrypt</code> 函数一样，由于算法的简单性，解密后的数据安全性仍然依赖于密钥的保密性。</p>
+
+    </div>
+
+    
+    
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Xloudmax
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2024/03/12/2/" title="">http://example.com/2024/03/12/2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/03/12/w/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/03/12/11/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0-reverse-%E7%9A%84%E8%A7%A3%E9%87%8A%EF%BC%88C-C-%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">函数 reverse 的解释（C&#x2F;C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0-decrypt-%E7%9A%84%E8%A7%A3%E9%87%8A%EF%BC%88C-C-%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">函数 decrypt 的解释（C&#x2F;C++）</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xloudmax"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Xloudmax</p>
+  <div class="site-description" itemprop="description">Welc0me t0 base</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xloudmax" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xloudmax" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xloudmax@gmail.com" title="E-Mail → mailto:xloudmax@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; Tue Mar 05 2024 08:00:00 GMT+0800 (GMT+08:00) – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xloudmax</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共4.6k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
