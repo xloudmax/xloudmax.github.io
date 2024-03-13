@@ -1,4 +1,4 @@
 <hr>
-<h2 id="layout-hscctftitle-roulettedate-2024-03-12-20-04-13tags-ctf"><a href="#layout-hscctftitle-roulettedate-2024-03-12-20-04-13tags-ctf" class="headerlink" title="layout: hscctftitle: roulettedate: 2024-03-12 20:04:13tags: ctf"></a>layout: hscctf<br>title: roulette<br>date: 2024-03-12 20:04:13<br>tags: ctf</h2><p><img src="/roulette/1.png" alt="1"><br><img src="/roulette/2.png" alt="2"><br>小游戏，内存注入秒了（还真是）<br>丢到IDA<br><img src="/roulette/3.png" alt="3"><br>巨多jmp互相跳转的花指令，去花好头疼，这里尝试用OD动态分析一波<br><img src="/roulette/4.png" alt="4"><br>OD里面很难下断点，截不住，而且这里判定八次循环是在内循环外，OD不好分析<br>这里试着用了内存注入</p>
-<p><img src="/roulette/5.png" alt="5"><br>啊，我的ce，不仅陪伴我的童年，还能帮我打CTF（</p>
-<p><img src="/roulette/6.png" alt="6"><br>hook到我自己的血量和敌人的血量，简单修改8次拿到flag<br><img src="/roulette/7.png" alt="7"></p>
+<h2 id="layout-hscctftitle-roulettedate-2024-03-12-20-04-13tags-ctf"><a href="#layout-hscctftitle-roulettedate-2024-03-12-20-04-13tags-ctf" class="headerlink" title="layout: hscctftitle: roulettedate: 2024-03-12 20:04:13tags: ctf"></a>layout: hscctf<br>title: roulette<br>date: 2024-03-12 20:04:13<br>tags: ctf</h2><p><img src="/1.png" alt="1"><br><img src="/2.png" alt="2"><br>小游戏，内存注入秒了（还真是）<br>丢到IDA<br><img src="/3.png" alt="3"><br>巨多jmp互相跳转的花指令，去花好头疼，这里尝试用OD动态分析一波<br><img src="/4.png" alt="4"><br>OD里面很难下断点，截不住，而且这里判定八次循环是在内循环外，OD不好分析<br>这里试着用了内存注入</p>
+<p><img src="/5.png" alt="5"><br>啊，我的ce，不仅陪伴我的童年，还能帮我打CTF（</p>
+<p><img src="/6.png" alt="6"><br>hook到我自己的血量和敌人的血量，简单修改8次拿到flag<br><img src="/7.png" alt="7"></p>
