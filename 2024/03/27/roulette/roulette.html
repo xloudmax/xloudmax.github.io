@@ -1,0 +1,4 @@
+<p>![[Pasted image 20240309215556.png]]</p>
+<p>![[Pasted image 20240309215815.png]]<br>小游戏，内存注入秒了（还真是）<br>丢到IDA<br>![[Pasted image 20240309215921.png]]<br>巨多jmp互相跳转的花指令，去花好头疼，这里尝试用OD动态分析一波<br>![[Pasted image 20240309220018.png]]<br>OD里面很难下断点，截不住，而且这里判定八次循环是在内循环外，OD不好分析<br>这里试着用了内存注入</p>
+<p>![[Pasted image 20240309215610.png]]<br>啊，我的ce，不仅陪伴我的童年，还能帮我打CTF（</p>
+<p>![[Pasted image 20240309215657.png]]<br>hook到我自己的血量和敌人的血量，简单修改8次拿到flag<br>![[Pasted image 20240309215755.png]]</p>
