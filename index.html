@@ -199,6 +199,116 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xloudmax.fun/2024/05/29/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Xloudmax">
+      <meta itemprop="description" content="Welc0me t0 the base">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xloudmax">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/29/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">计数排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-05-29 11:25:08" itemprop="dateCreated datePublished" datetime="2024-05-29T11:25:08+08:00">2024-05-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/" itemprop="url" rel="index"><span itemprop="name">排序</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="计数排序（Counting-Sort）算法介绍"><a href="#计数排序（Counting-Sort）算法介绍" class="headerlink" title="计数排序（Counting Sort）算法介绍"></a>计数排序（Counting Sort）算法介绍</h1><h2 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h2><p>计数排序（Counting Sort）是一种基于哈希的排序算法。它通过统计每个元素的出现次数，然后根据统计结果将元素依次放入排序后的序列中。计数排序特别适用于元素范围较小的情况，例如整数范围在 0 到 k 之间。</p>
+<h2 id="二、算法思想"><a href="#二、算法思想" class="headerlink" title="二、算法思想"></a>二、算法思想</h2><p>计数排序的核心是创建一个计数数组，用于记录每个元素出现的次数。具体步骤如下：</p>
+<ol>
+<li><strong>初始化计数数组</strong>：创建一个长度为最大元素值加 1 的计数数组，所有元素初始化为 0。</li>
+<li><strong>统计元素出现次数</strong>：遍历原始数组，将每个元素的值作为索引，在计数数组中对应位置加 1。</li>
+<li><strong>清空原数组</strong>。</li>
+<li><strong>根据计数数组排序</strong>：遍历计数数组，按照计数数组中的计数值将元素放回到原数组中。</li>
+</ol>
+<h2 id="三、动图演示"><a href="#三、动图演示" class="headerlink" title="三、动图演示"></a>三、动图演示</h2><p>计数排序完整排序过程如下图所示：</p>
+<p><strong>演示说明</strong>：<img src="https://s2.loli.net/2024/05/29/wNhE6BJ8qW91MZy.gif" alt="counting_sort_bar"></p>
+<ol>
+<li>首先，程序生成一个范围为 [1, 9] 的计数数组，并且一开始所有值的计数都为 0。</li>
+<li>然后，遍历原数组的所有元素，在对应的计数器位置执行计数操作。</li>
+<li>最后，遍历计数数组，按照计数值将元素放回到原数组中。这样，所有元素都按照升序排列。</li>
+</ol>
+<h2 id="四、算法分析"><a href="#四、算法分析" class="headerlink" title="四、算法分析"></a>四、算法分析</h2><h3 id="1-时间复杂度"><a href="#1-时间复杂度" class="headerlink" title="1. 时间复杂度"></a>1. 时间复杂度</h3><p>假设一次「哈希」和「计数」的时间复杂度均为 O(1)，并且总共有 n 个数，数字范围为 1 → k。计数排序中总共有四个循环：</p>
+<ul>
+<li>初始化计数数组：时间复杂度 O(k)；</li>
+<li>枚举所有数字并计数：时间复杂度 O(n)；</li>
+<li>枚举所有范围内的数字：时间复杂度 O(k)；</li>
+<li>将元素放回原数组：时间复杂度 O(n)。</li>
+</ul>
+<p>总的时间复杂度为：O(n + k)。</p>
+<h3 id="2-空间复杂度"><a href="#2-空间复杂度" class="headerlink" title="2. 空间复杂度"></a>2. 空间复杂度</h3><p>假设最大的数字为 k，则空间复杂度为 O(k)。</p>
+<h2 id="五、算法的优点"><a href="#五、算法的优点" class="headerlink" title="五、算法的优点"></a>五、算法的优点</h2><ol>
+<li><strong>简单易懂</strong>：计数排序的原理非常简单，容易理解和实现。</li>
+<li><strong>时间复杂度低</strong>：对于范围较小的元素，计数排序的时间复杂度非常优秀。</li>
+<li><strong>适用于特定场景</strong>：当元素的范围已知且较小时，计数排序可以高效地完成排序。</li>
+</ol>
+<h2 id="六、算法的缺点"><a href="#六、算法的缺点" class="headerlink" title="六、算法的缺点"></a>六、算法的缺点</h2><ol>
+<li><strong>空间开销</strong>：计数排序需要额外的空间来存储计数数组，当元素范围较大时，可能会消耗较多的内存。</li>
+<li><strong>局限性</strong>：计数排序只适用于元素范围较小的情况，对于大规模数据或元素范围不确定的情况并不适用。</li>
+</ol>
+<h2 id="七、优化方案"><a href="#七、优化方案" class="headerlink" title="七、优化方案"></a>七、优化方案</h2><p>计数排序在众多排序算法中效率较高，时间复杂度为 O(n + k)。然而，它的缺陷是非常依赖数据范围，必须为整数且限定在 [1, k] 范围内。因此，优化点主要集中在常数优化上：</p>
+<ol>
+<li>初始化计数数组可以采用系统函数（例如 C/C++ 中的 <code>memset</code>，纯内存操作，优于循环）。</li>
+<li>当排序元素达到 n 个时，可以提前结束第三个循环，跳出循环。</li>
+</ol>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://xloudmax.fun/2024/05/28/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2310,7 +2420,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2371,7 +2481,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共17.4k字</span>
+  <span class="post-count">博客全站共18.2k字</span>
 </div>
 
 
