@@ -199,6 +199,316 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xloudmax.fun/2024/08/01/%E5%9F%BA%E4%BA%8EDocker%E7%9A%84WRF-Hydro-%E8%AE%AD%E7%BB%83%E5%AE%B9%E5%99%A8%E9%83%A8%E7%BD%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Xloudmax">
+      <meta itemprop="description" content="Welc0me t0 the base">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xloudmax">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/01/%E5%9F%BA%E4%BA%8EDocker%E7%9A%84WRF-Hydro-%E8%AE%AD%E7%BB%83%E5%AE%B9%E5%99%A8%E9%83%A8%E7%BD%B2/" class="post-title-link" itemprop="url">基于Docker的WRF-Hydro 训练容器部署</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-08-01 00:43:27 / 修改时间：00:37:01" itemprop="dateCreated datePublished" datetime="2024-08-01T00:43:27+08:00">2024-08-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B6%85%E7%AE%97/" itemprop="url" rel="index"><span itemprop="name">超算</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="WRF-Hydro-训练容器"><a href="#WRF-Hydro-训练容器" class="headerlink" title="WRF-Hydro 训练容器"></a>WRF-Hydro 训练容器</h1><p>WRF-Hydro 训练容器是专门为 WRF-Hydro 模型系统的培训设计的 Docker 容器，它可以在本地运行。该容器包含以下内容：</p>
+<ol>
+<li><strong>Ubuntu 基础镜像</strong>：这是运行环境的基础操作系统。</li>
+<li><strong>WRF-Hydro、WPS 和 WRF 所需的所有系统库</strong>：这些库是运行这些软件所必需的。</li>
+<li><strong>WPS 安装</strong>：包含了 WRF Preprocessing System (WPS) 的安装。</li>
+<li><strong>WRF-Hydro 模型代码和各种实用工具</strong>：提供了 WRF-Hydro 模型的代码和相关工具。</li>
+<li><strong>不同配置下运行模型的示例案例</strong>：提供了可以使用的示例数据和配置文件。</li>
+<li><strong>文本编辑器 - Vim 和 Nano</strong>：方便用户在容器中编辑文本文件。</li>
+</ol>
+<h2 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h2><p>推荐的最简单的方式是通过 <code>wrfhydro/training</code> Docker 容器运行，因为该容器预装了所有必要的软件依赖和数据。</p>
+<ul>
+<li>需要 Docker 版本 &gt;= v.17.12</li>
+</ul>
+<h2 id="运行步骤"><a href="#运行步骤" class="headerlink" title="运行步骤"></a>运行步骤</h2><ol>
+<li><p><strong>确保已安装 Docker</strong>。</p>
+<p><strong>注意：</strong> 默认的 Docker 配置需要至少 2 个 CPU 来运行此训练容器。</p>
+</li>
+<li><p><strong>拉取 wrfhydro/training Docker 容器</strong></p>
+<ul>
+<li><p>访问 <a target="_blank" rel="noopener" href="https://github.com/NCAR/wrf_hydro_nwm_public/releases">WRF-Hydro 公共发布页面</a><a target="_blank" rel="noopener" href="https://github.com/NCAR/wrf_hydro_docker">NCAR/wrf_hydro_docker: Docker containers for the WRF-Hydro modeling system (github.com)</a>，选择所需的代码版本。</p>
+</li>
+<li><p>在终端中执行以下命令，拉取最新版本的训练容器 <a target="_blank" rel="noopener" href="https://github.com/NCAR/wrf_hydro_nwm_public/releases/tag/v5.3.0">WRF-Hydro® v5.3.0</a>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull wrfhydro/training</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2024/08/01/1yw5atejXVGIWoB.png" alt="Docker Pull"></p>
+</li>
+</ul>
+</li>
+<li><p><strong>启动培训 Docker 容器</strong></p>
+<ul>
+<li><p>在终端会话中执行以下命令，启动培训 Docker 容器：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name wrf-hydro-training -p 8888:8888 -it wrfhydro/training</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其中 <code>-p 8888:8888</code> 是将主机的 8888 端口映射到容器的 8888 端口。如果主机上已经有进程在使用 8888 端口，需要更改此端口号。</p>
+</li>
+</ul>
+<p>容器启动后，将执行以下操作：</p>
+<ol>
+<li>拉取对应主要版本的模型代码。</li>
+<li>拉取与模型代码版本兼容的示例测试案例。</li>
+<li>拉取对应主要版本的培训课程。</li>
+<li>启动 JupyterLab 服务器并将地址回显到终端。</li>
+</ol>
+</li>
+<li><p><strong>打开 JupyterLab</strong></p>
+<ul>
+<li>所有的培训课程内容都位于 <code>~/wrf-hydro-training/lessons</code> 文件夹内。这些课程是交互式的，可以实时执行代码命令。有关 Jupyter notebook 的更多信息，请访问 <a target="_blank" rel="noopener" href="http://jupyter.org/">Jupyter 项目页面</a>。</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://s2.loli.net/2024/08/01/FLd5qB4pc9ZEJDe.png" alt="JupyterLab"></p>
+<p>这里测试用例拉取失败了，可能跟我家垃圾网有关，在 Github 下载测试用例：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/NCAR/wrf_hydro_nwm_public/releases">Releases · NCAR/wrf_hydro_nwm_public (github.com)</a></p>
+<p><img src="https://s2.loli.net/2024/08/01/gosmeILXOYuSFt7.png" alt="Download Example Case"></p>
+<p>这里我选择了 <a target="_blank" rel="noopener" href="https://github.com/NCAR/wrf_hydro_nwm_public/releases/download/v5.3.0/croton_NY_training_example_v5.3.tar.gz">croton_NY_training_example_v5.3.tar.gz</a></p>
+<p>在 Docker 中查看容器：</p>
+<p><img src="https://s2.loli.net/2024/08/01/FA5O1Iv6xrJGVgR.png" alt="Docker Container"></p>
+<p>打开 Jupyter：</p>
+<p><img src="https://s2.loli.net/2024/08/01/2LqfCWl4IwDKJci.png" alt="Jupyter"></p>
+<p>训练容器包含一套详细的教程，一步一步往下设置。</p>
+<hr>
+<h2 id="第一步：编译"><a href="#第一步：编译" class="headerlink" title="第一步：编译"></a>第一步：编译</h2><p><strong>Step 1. 列出 <em>trunk/NDHMS</em> 目录的内容</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ls ~/wrf-hydro-training/wrf_hydro_nwm_public/trunk/NDHMS</span><br><span class="line">CPL/              README.build.txt            deprecated/</span><br><span class="line">Data_Rec/         Rapid_routing/              hrldas_namelists.json</span><br><span class="line">Debug_Utilities/  Routing/                    hydro_namelists.json</span><br><span class="line">Doc/              arc/                        nudging/</span><br><span class="line">HYDRO_drv/        compile_offline_Noah.sh*    template/</span><br><span class="line">Land_models/      compile_offline_NoahMP.sh*  utils/</span><br><span class="line">MPP/              compile_options.json        wrf_hydro_config*</span><br><span class="line">Makefile          configure*</span><br></pre></td></tr></table></figure>
+<p><strong>Step 2. 配置编译环境</strong></p>
+<p><strong>Table 1.</strong> Descriptions of the contents of each source code sub-directory.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>File/directory name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>arc/</td>
+<td>Contains macro files, which specify the compile configurations, compiler options, links to netCDF libraries, etc.</td>
+</tr>
+<tr>
+<td>cmake_modules/</td>
+<td>Utilities for the experimental CMake build</td>
+</tr>
+<tr>
+<td>CPL/Noah_cpl/</td>
+<td>WRF-Hydro coupling interface for coupling WRF-Hydro components with the standalone (offline) Noah land surface model data assimilation and forecasting system</td>
+</tr>
+<tr>
+<td>CPL/NoahMP_cpl/</td>
+<td>WRF-Hydro coupling interface for coupling WRF-Hydro components with the standalone (offline) Noah-MP land surface model data assimilation and forecasting system</td>
+</tr>
+<tr>
+<td>CPL/WRF_cpl/</td>
+<td>WRF-Hydro coupling interface for coupling WRF-Hydro components with the WRF system</td>
+</tr>
+<tr>
+<td>CPL/CLM_cpl/, CPL/LIS_cpl/, CPL/NUOPC_cpl/</td>
+<td>Work in progress for ongoing coupling work</td>
+</tr>
+<tr>
+<td>Data_Rec/</td>
+<td>Contains some data declaration modules</td>
+</tr>
+<tr>
+<td>Debug_Utilities/</td>
+<td>Debugging utilities</td>
+</tr>
+<tr>
+<td>deprecated/</td>
+<td>Files not currently in use</td>
+</tr>
+<tr>
+<td>Doc/</td>
+<td>Pointer to location of full documentation</td>
+</tr>
+<tr>
+<td>HYDRO_drv/</td>
+<td>High-level WRF-Hydro component driver</td>
+</tr>
+<tr>
+<td>IO/</td>
+<td>I/O interfaces</td>
+</tr>
+<tr>
+<td>Land_models/Noah/</td>
+<td>Noah land surface model driver for standalone applications</td>
+</tr>
+<tr>
+<td>Land_models/NoahMP/</td>
+<td>Noah-MP land surface model driver for standalone applications</td>
+</tr>
+<tr>
+<td>MPP/</td>
+<td>MPI parallelization routines and functions</td>
+</tr>
+<tr>
+<td>nudging/</td>
+<td>Nudging data assimilation routines and functions</td>
+</tr>
+<tr>
+<td>OrchestratorLayer/</td>
+<td>Modules for namelist reads and eventually high level model orchestration</td>
+</tr>
+<tr>
+<td>Rapid_routing/</td>
+<td>Contains code for the RAPID routing model coupling (unsupported and out of date)</td>
+</tr>
+<tr>
+<td>Routing/</td>
+<td>Modules and drivers related to specific routing processes in WRF-Hydro</td>
+</tr>
+<tr>
+<td>template/</td>
+<td>Example namelist files for Noah, Noah-MP, and the WRF-Hydro modules (HYDRO) and example parameter tables for HYDRO. <strong>Note:</strong> Parameter tables for Noah and Noah-MP are stored within the Land_models directory. A sample bash script (setEnvar.sh) that could be passed to the compile script listing compile time options for WRF-Hydro is also located here.</td>
+</tr>
+<tr>
+<td>utils/</td>
+<td>Generic utilities used throughout the code</td>
+</tr>
+<tr>
+<td>compile_offline_Noah.sh</td>
+<td>Script for compiling WRF-Hydro standalone version with the Noah land surface model</td>
+</tr>
+<tr>
+<td>compile_offline_NoahMP.sh</td>
+<td>Script for compiling WRF-Hydro standalone version with the Noah-MP land surface model</td>
+</tr>
+<tr>
+<td>configure</td>
+<td>Script to configure the WRF-Hydro compilation</td>
+</tr>
+<tr>
+<td>Makefile</td>
+<td>Top-level makefile for building and cleaning WRF-Hydro code</td>
+</tr>
+<tr>
+<td>README.build.txt</td>
+<td>WRF-Hydro build instructions for the standalone model</td>
+</tr>
+<tr>
+<td>wrf_hydro_config</td>
+<td>Configure script for coupled WRF-Hydro configuration</td>
+</tr>
+<tr>
+<td>*.json</td>
+<td>JSON files used for testing</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>如表1所述，<code>configure</code> 脚本用于配置编译环境。执行该脚本时，会提示选择编译器。在培训环境中，我们使用 GNU Fortran 编译器，因此选择选项 2（GNU / gfortran）。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/wrf-hydro-training/wrf_hydro_nwm_public/trunk/NDHMS/</span><br><span class="line">./configure 2</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/home/docker/wrf-hydro-training/wrf_hydro_nwm_public/trunk/NDHMS</span><br><span class="line">Configured: gfort</span><br></pre></td></tr></table></figure>
+<p><strong>Step 3. 复制模板环境变量文件</strong></p>
+<p>将模板文件 <code>template/setEnvar.sh</code> 复制为 <code>setEnvar.sh</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp template/setEnvar</span><br><span class="line"></span><br><span class="line">.sh setEnvar.sh</span><br></pre></td></tr></table></figure>
+<p><strong>Step 4. 设置编译时选项</strong></p>
+<p>编辑 <code>~/wrf-hydro-training/wrf_hydro_nwm_public/trunk/NDHMS/setEnvar.sh</code> 文件，设置编译脚本所需的环境变量。<code>setEnvar.sh</code> 脚本应如下所示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">WRF-Hydro compile time options</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">This is a WRF environment variable. Always <span class="built_in">set</span> to 1=On <span class="keyword">for</span> compiling WRF-Hydro.</span></span><br><span class="line">export WRF_HYDRO=1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Enhanced diagnostic output <span class="keyword">for</span> debugging: 0=Off, 1=On.</span></span><br><span class="line">export HYDRO_D=1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Spatially distributed parameters <span class="keyword">for</span> NoahMP: 0=Off, 1=On.</span></span><br><span class="line">export SPATIAL_SOIL=1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">RAPID model: 0=Off, 1=On.</span></span><br><span class="line">export WRF_HYDRO_RAPID=0</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">WCOSS file units: 0=Off, 1=On.</span></span><br><span class="line">export NCEP_WCOSS=0</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">NWM output metadata: 0=Off, 1=On.</span></span><br><span class="line">export NWM_META=0</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Streamflow nudging: 0=Off, 1=On.</span></span><br><span class="line">export WRF_HYDRO_NUDGING=0</span><br></pre></td></tr></table></figure>
+<p><strong>Step 5. 以独立模式编译 WRF-Hydro</strong></p>
+<p>我们支持使用 Noah 或 Noah-MP 陆面模式编译独立的 WRF-Hydro 模型。为此，我们将使用 <code>compile_offline_NoahMP.sh</code> 脚本。执行以下命令来编译模型，并将输出记录到日志文件 <code>compile.log</code> 中：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./compile_offline_NoahMP.sh setEnvar.sh | tee compile.log</span><br></pre></td></tr></table></figure>
+<p><strong>Step 6. 检查编译日志以确保编译成功</strong></p>
+<p>查看编译日志的最后几行，确保显示 “Make was successful” 和编译时使用的环境变量。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -13 compile.log</span><br></pre></td></tr></table></figure>
+<p>输出结果应包括：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">*****************************************************************</span><br><span class="line">Make was successful</span><br><span class="line"></span><br><span class="line">*****************************************************************</span><br><span class="line">The environment variables used in the compile:</span><br><span class="line">HYDRO_D=1</span><br><span class="line">NCEP_WCOSS=0</span><br><span class="line">NETCDF=/usr/local</span><br><span class="line">SPATIAL_SOIL=1</span><br><span class="line">WRF_HYDRO=1</span><br><span class="line">WRF_HYDRO_NUDGING=0</span><br><span class="line">WRF_HYDRO_RAPID=0</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2024/08/01/ytnaGUfo9QJMg12.png" alt="编译成功"></p>
+<hr>
+<h2 id="Lesson-2-运行-WRF-Hydro"><a href="#Lesson-2-运行-WRF-Hydro" class="headerlink" title="Lesson 2 - 运行 WRF-Hydro"></a>Lesson 2 - 运行 WRF-Hydro</h2><p>在这个课程中，我们将学习如何使用准备好的域来构建和运行 WRF-Hydro 模拟。</p>
+<h3 id="构建模拟"><a href="#构建模拟" class="headerlink" title="构建模拟"></a>构建模拟</h3><p><strong>Step 1. 创建模拟目录</strong></p>
+<p>我们将为模拟创建一个目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/wrf-hydro-training/output/lesson2/run_gridded_default</span><br><span class="line">cd ~/wrf-hydro-training/output/lesson2/run_gridded_default</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2024/08/01/RDYlhGx7JtjZ8Ii.png" alt="创建模拟目录"></p>
+<p><strong>Step 2. 复制模型运行文件</strong></p>
+<p>从 <code>~/wrf-hydro-training/wrf_hydro_nwm_public/trunk/NDHMS/Run</code> 目录复制所需的模型运行文件。这些文件较小，因此我们将实际复制而不是创建符号链接。另外，由于用户可能希望编辑这些文件，因此不建议使用符号链接。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp ~/wrf-hydro-training/wrf_hydro_nwm_public/trunk/NDHMS/Run/*.TBL .</span><br><span class="line">cp ~/wrf-hydro-training/wrf_hydro_nwm_public/trunk/NDHMS/Run/wrf_hydro.exe .</span><br></pre></td></tr></table></figure>
+<p>查看目录内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br></pre></td></tr></table></figure>
+<p>CHANPARM.TBL  GENPARM.TBL  HYDRO.TBL  MPTABLE.TBL  SOILPARM.TBL  wrf_hydro.exe</p>
+<p><img src="https://s2.loli.net/2024/08/01/U4O8ozxDnHJacK2.png" alt="模型运行文件"></p>
+<p><strong>Step 3. 创建 DOMAIN 文件的符号链接</strong></p>
+<p>从 <code>~/wrf-hydro-training/example_case/Gridded/DOMAIN</code> 目录创建所需域文件的符号链接。这些文件可能很大，因此我们使用符号链接而不是复制实际文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln -sf ~/wrf-hydro-training/example_case/FORCING .</span><br><span class="line">ln -sf ~/wrf-hydro-training/example_case/Gridded/DOMAIN .</span><br><span class="line">ln -sf ~/wrf-hydro-training/example_case/Gridded/RESTART .</span><br></pre></td></tr></table></figure>
+<p>查看目录内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2024/08/01/uvmehoPI7jwipqU.png" alt="创建 DOMAIN 文件的符号链接"></p>
+<p><strong>Step 4. 复制 namelist 文件</strong></p>
+<p>由于我们使用的是例子域的默认 namelist 文件，我们将其复制到模拟目录中。如果你使用的是自己的 namelist 文件，可能需要从其他地方复制和编辑。这些文件很小，因此我们将实际复制而不是创建符号链接。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp ~/wrf-hydro-training/example_case/Gridded/namelist.hrldas .</span><br><span class="line">cp ~/wrf-hydro-training/example_case/Gridded/hydro.namelist .</span><br></pre></td></tr></table></figure>
+<p>查看目录内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2024/08/01/T2fAu4lZXwaJkRM.png" alt="复制 namelist 文件"></p>
+<h3 id="运行-WRF-Hydro-使用默认运行时选项"><a href="#运行-WRF-Hydro-使用默认运行时选项" class="headerlink" title="运行 WRF-Hydro 使用默认运行时选项"></a>运行 WRF-Hydro 使用默认运行时选项</h3><p>现在我们已经构建了模拟目录，可以运行模拟。我们将使用 <code>mpirun</code> 命令来运行模拟。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mpirun -np 2 ./wrf_hydro.exe &gt;&gt; run.log 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+<p>运行成功后，<code>~/wrf-hydro-training/output/lesson2/run_gridded_default</code> 目录中应有大量输出文件。</p>
+<p>查看运行目录的内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2024/08/01/ER65MZgF18TfQBK.png" alt="运行目录内容"></p>
+<p>可以通过检查 <code>diag_hydro.0000*</code> 文件的最后一行来验证模拟是否成功，最后一行应显示 “The model finished successfully”。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -1 diag_hydro.00000</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2024/08/01/hkR3WsSY6XdTnMB.png" alt="验证模拟成功"></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://xloudmax.fun/2024/06/27/Steam%E8%A7%A3%E9%94%81%E6%B8%B8%E6%88%8F%E9%AA%97%E5%B1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1226,101 +1536,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xloudmax.fun/2024/04/07/%E7%9B%AE%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Xloudmax">
-      <meta itemprop="description" content="Welc0me t0 the base">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xloudmax">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/04/07/%E7%9B%AE%E5%BD%95/" class="post-title-link" itemprop="url">队列</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-04-07 14:43:56" itemprop="dateCreated datePublished" datetime="2024-04-07T14:43:56+08:00">2024-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-05-10 23:24:54" itemprop="dateModified" datetime="2024-05-10T23:24:54+08:00">2024-05-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">基础数据结构</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h4><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>​        <strong>一、队列的概念</strong></p>
-<p>​        <strong>二、入队</strong></p>
-<p>​        <strong>三、出队</strong></p>
-<p>​        <strong>四、获取队首元素</strong></p>
-<h2 id="一、队列的概念"><a href="#一、队列的概念" class="headerlink" title="一、队列的概念"></a>一、队列的概念</h2><p>​      队列是仅限在表尾进行插入，表头进行删除的线性表<strong>，</strong>它遵循先进先出（First-In-First-Out，FIFO）的原则。队列就像排队等候的人群一样，最先进入队列的元素将首先被处理或移除。</p>
-<p>​      在计算机科学中，队列通常用于实现 排队系统、任务调度、消息传递（消息队列可用于进程间通信）。我们一般可以用 顺序表 或者 链表 来实现队列。</p>
-<h2 id="二、入队"><a href="#二、入队" class="headerlink" title="二、入队"></a>二、入队</h2><h3 id="1、入队的概念"><a href="#1、入队的概念" class="headerlink" title="1、入队的概念"></a>1、入队的概念</h3><p>​      队列的插入操作叫做入队，它是将数据元素从队尾进行插入的过程。</p>
-<h3 id="2、入队的图解"><a href="#2、入队的图解" class="headerlink" title="2、入队的图解"></a>2、入队的图解</h3><p>​      如图所示，4 号元素是原先的队尾，在它后面插入一个元素 6，就完成了入队的过程。</p>
-<p><img src="/pic/21.gif" alt="21"></p>
-<h3 id="3、入队的步骤"><a href="#3、入队的步骤" class="headerlink" title="3、入队的步骤"></a>3、入队的步骤</h3><p>​       第1步、将元素添加到队列尾部，更新队尾指针（适用于链表）或者索引（适用于顺序表）。</p>
-<p>​       第2步、队列大小增加 1。</p>
-<h2 id="三、出队"><a href="#三、出队" class="headerlink" title="三、出队"></a>三、出队</h2><h3 id="1、出队的概念"><a href="#1、出队的概念" class="headerlink" title="1、出队的概念"></a>1、出队的概念</h3><p>​      队列的删除操作叫做出队，它是将队首元素进行删除的过程。</p>
-<h3 id="2、出队的图解"><a href="#2、出队的图解" class="headerlink" title="2、出队的图解"></a>2、出队的图解</h3><p>​      如图所示，直接删除队首的元素，并且更新为新的队首即可。</p>
-<p><img src="/pic/22.gif" alt="22"></p>
-<h3 id="3、出队的步骤"><a href="#3、出队的步骤" class="headerlink" title="3、出队的步骤"></a>3、出队的步骤</h3><p>​      第1步、删除队首元素，更新队首指针（适用于链表）或者索引（适用于顺序表）。</p>
-<p>​      第2步、队列的大小减小 1。</p>
-<h2 id="四、获取队首元素"><a href="#四、获取队首元素" class="headerlink" title="四、获取队首元素"></a>四、获取队首元素</h2><h3 id="1、获取队首元素的概念"><a href="#1、获取队首元素的概念" class="headerlink" title="1、获取队首元素的概念"></a>1、获取队首元素的概念</h3><p>​      返回队首指针（或者索引）指向的元素的值，无论是链表还是顺序表，都可以通过队首指针（或者索引）在 O(1) 的时间复杂度获取到队首元素。</p>
-<h3 id="2、获取队首元素的图解"><a href="#2、获取队首元素的图解" class="headerlink" title="2、获取队首元素的图解"></a>2、获取队首元素的图解</h3><p>​      如图所示，直接通过队首指针（或者索引）获取队首元素。</p>
-<p><img src="/pic/23.gif" alt="23"></p>
-<h3 id="3、获取队首元素的步骤"><a href="#3、获取队首元素的步骤" class="headerlink" title="3、获取队首元素的步骤"></a>3、获取队首元素的步骤</h3><p>​       第1步、利用队首指针（或者索引）获取队首元素并返回。由于是查询操作，所以不会改变队列本身的数据；</p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-      
-    </div>
-
-    
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1392,14 +1607,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -1453,7 +1668,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共20.1k字</span>
+  <span class="post-count">博客全站共22k字</span>
 </div>
 
 
