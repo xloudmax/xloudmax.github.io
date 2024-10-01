@@ -199,6 +199,128 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xloudmax.fun/2024/05/10/ISSC/ssXl9SF0HvBbMAtG/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Xloudmax">
+      <meta itemprop="description" content="Welc0me t0 the base">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xloudmax">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/10/ISSC/ssXl9SF0HvBbMAtG/" class="post-title-link" itemprop="url">ISCC-1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-05-10 22:51:41 / 修改时间：18:42:49" itemprop="dateCreated datePublished" datetime="2024-05-10T22:51:41+08:00">2024-05-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ISCC/" itemprop="url" rel="index"><span itemprop="name">ISCC</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="/pic/36.png" alt="36"></p>
+<h2 id="1、迷失之门"><a href="#1、迷失之门" class="headerlink" title="1、迷失之门"></a>1、迷失之门</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">reverse_simulate_check</span>(<span class="params">transformed_string</span>):</span><br><span class="line"></span><br><span class="line">​    v16 = <span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span>  <span class="comment"># 大写字母</span></span><br><span class="line">​    v10 = <span class="string">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>  <span class="comment"># 小写字母</span></span><br><span class="line">​    v4 = <span class="string">&quot;0123456789+/-=!#&amp;*()?;:^%&quot;</span>    <span class="comment"># 特殊字符和数字</span></span><br><span class="line">​    v3 = <span class="string">&quot;DABBZXQESVFRWNGTHYJUMKIOLPC&quot;</span>  <span class="comment"># 转换基准</span></span><br><span class="line"></span><br><span class="line">​    possible_inputs = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 遍历转换后的字符串</span></span><br><span class="line"></span><br><span class="line">​    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(transformed_string)):</span><br><span class="line">​        transformed_char = transformed_string[i]</span><br><span class="line">​        current_v3_char = v3[i % <span class="built_in">len</span>(v3)]</span><br><span class="line">​        possible_chars = []</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 检查 v16</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">for</span> index, char <span class="keyword">in</span> <span class="built_in">enumerate</span>(v16):</span><br><span class="line">​            <span class="keyword">if</span> char == transformed_char:</span><br><span class="line">​                original_char = <span class="built_in">chr</span>(<span class="built_in">ord</span>(current_v3_char) + index)</span><br><span class="line">​                <span class="keyword">if</span> <span class="number">32</span> &lt; <span class="built_in">ord</span>(original_char) != <span class="number">127</span>:</span><br><span class="line">​                    possible_chars.append(original_char)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 检查 v10</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">for</span> index, char <span class="keyword">in</span> <span class="built_in">enumerate</span>(v10):</span><br><span class="line">​            <span class="keyword">if</span> char == transformed_char:</span><br><span class="line">​                original_char = <span class="built_in">chr</span>(<span class="built_in">ord</span>(current_v3_char) + index + <span class="number">26</span>)</span><br><span class="line">​                <span class="keyword">if</span> <span class="number">32</span> &lt; <span class="built_in">ord</span>(original_char) != <span class="number">127</span>:</span><br><span class="line">​                    possible_chars.append(original_char)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 检查 v4</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">for</span> index, char <span class="keyword">in</span> <span class="built_in">enumerate</span>(v4):</span><br><span class="line">​            <span class="keyword">if</span> char == transformed_char:</span><br><span class="line">​                original_char = <span class="built_in">chr</span>(<span class="built_in">ord</span>(current_v3_char) + index + <span class="number">52</span>)</span><br><span class="line">​                <span class="keyword">if</span> <span class="number">32</span> &lt; <span class="built_in">ord</span>(original_char) != <span class="number">127</span>:</span><br><span class="line">​                    possible_chars.append(original_char)</span><br><span class="line"></span><br><span class="line">​        possible_inputs.append(possible_chars)</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">return</span> possible_inputs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 已转换后的字符串</span></span><br><span class="line"></span><br><span class="line">transformed_string = <span class="string">&quot;FSBBhKrVSGeafuZDJkuYqROaYY6&quot;</span></span><br><span class="line">original_input_possibilities = reverse_simulate_check(transformed_string)</span><br><span class="line"><span class="keyword">for</span> i, possibilities <span class="keyword">in</span> <span class="built_in">enumerate</span>(original_input_possibilities):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Character position <span class="subst">&#123;i+<span class="number">1</span>&#125;</span> possible originals: <span class="subst">&#123;possibilities&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<p>得到flag ISCC{b|Ze\dlv|`WQ}xmw\Widh}</p>
+<p><img src="/pic/37.png" alt="37"></p>
+<ol>
+<li><p><strong>函数声明</strong>：这是<code>main</code>函数的入口，采用标准的C++形式，接收命令行参数。</p>
+</li>
+<li><p>关键逻辑分析</p>
+<ul>
+<li><pre><code>if (strlen(Buffer) &lt;= 0x1B)
+</code></pre><p>：这个条件检查输入的长度是否小于等于27个字符。</p>
+<ul>
+<li><p>如果是，进入循环检查Buffer中的字符：</p>
+<ul>
+<li>循环从索引5到25，检查字符是否是小写字母或下划线（<code>islower(Buffer[i]) || Buffer[i] == &#39;_&#39;</code>）。如果不是，<code>v7</code>设为0。</li>
+<li>调用<code>check(Buffer)</code>函数，此函数可能是用来检查<code>Buffer</code>中是否包含有效的flag。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>如果输入长度超过27个字符，输出一条错误消息并暂停。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="Check"><a href="#Check" class="headerlink" title="Check"></a>Check</h2><p><img src="/pic/38.png" alt="38"></p>
+<p>初始化了三个字符数组：</p>
+<ul>
+<li><code>v16</code> 存储大写字母 A-Z。</li>
+<li><code>v10</code> 存储小写字母 a-z。</li>
+<li><code>v4</code> 存储数字和特殊字符。</li>
+<li><p><code>v3</code> 存储了一个特定的字母序列 “DABBZXQESVFRWNGTHYJUMKIOLPC”，看起来像是一个密钥或映射。</p>
+</li>
+<li><p>循环遍历输入字符串 a1</p>
+<p>，对每个字符进行检查和变换：</p>
+<ul>
+<li>跳过ASCII值为127和小于等于32的字符（控制字符和空白）。</li>
+<li>对于其他字符，根据与v3中对应位置字符的差值，进行替换：<ul>
+<li>如果差值小于或等于0，输出”flag is wrong”。</li>
+<li>如果差值在1到25之间，使用 <code>v16</code>（大写字母）中对应的字符替换。</li>
+<li>如果差值在26到51之间，使用 <code>v10</code>（小写字母）中对应的字符替换。</li>
+<li>如果差值大于51，使用 <code>v4</code>（数字和特殊字符）中对应的字符替换。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="check2"><a href="#check2" class="headerlink" title="check2"></a>check2</h2><p><img src="/pic/39.png" alt="39"></p>
+<p>验证输出，这里相当于直接告诉你flag要求了，写个脚本秒了</p>
+<p>transformed_string = “FSBBhKrVSGeafuZDJkuYqROaYY6”</p>
+<p><img src="../pic/image-20240510231929311.png" alt="image-20240510231929311"></p>
+<p><img src="/image-20240510232036513.png" alt="image-20240510232036513"></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://xloudmax.fun/2024/04/07/%E7%9B%AE%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1702,7 +1824,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1751,7 +1873,7 @@
 
 <div class="copyright">
   
-  &copy; Tue Mar 05 2024 08:00:00 GMT+0800 (GMT+08:00) – 
+  &copy; Tue Mar 05 2024 08:00:00 GMT+0800 (中国标准时间) – 
   <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -1763,7 +1885,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共22k字</span>
+  <span class="post-count">博客全站共25.4k字</span>
 </div>
 
 
