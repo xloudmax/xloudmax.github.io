@@ -1,1 +1,0 @@
-import{j as m}from"./main-Dxe96qr2.js";const n=({children:a,className:t="",maxWidth:x="max-w-[2400px]",...e})=>m.jsx("div",{className:`w-full ${x} mx-auto px-4 md:px-6 animate-fade-in-up ${t}`,...e,children:a});export{n as P};
